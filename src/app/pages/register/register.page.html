@@ -1,0 +1,102 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar no-padding translucent>
+    
+    <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form>
+
+      <div class="selectimage">
+        <ion-icon src="assets/icon/camera.svg"></ion-icon>
+      </div>
+
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Nombre
+        </ion-label>
+
+        <ion-input clearInput type="text" placeholder="Nombre" required></ion-input>
+
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Apellidos
+        </ion-label>
+
+        <ion-input clearInput type="text" placeholder="Apellidos" required></ion-input>
+
+      </ion-item>
+        
+      <ion-item class="date-selector" lines="none">
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-datetime #myPicker display-format="DD/MM/YYYY" cancelText="Cancelar" doneText="OK" placeholder="Fecha"
+          (ionChange)="updateMyDate(myPicker.value)"></ion-datetime>
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Email
+        </ion-label>
+
+        <ion-input clearInput type="email" placeholder="Email" required></ion-input>
+
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Contraseña
+        </ion-label>
+        <ion-input clearInput type="password" placeholder="Contraseña" required></ion-input>
+
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Confirmar contraseña
+        </ion-label>
+
+        <ion-input clearInput type="password" placeholder="Contraseña" required></ion-input>
+
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Telefono
+        </ion-label>
+
+        <ion-input clearInput type="tel" placeholder="Teléfono" required>
+
+        </ion-input>
+      </ion-item>
+    
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Dirección
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Dirección" required></ion-input>
+
+    </ion-item>
+
+    
+
+      <div  class="gender">
+
+        <label><input type="checkbox" ><span> <ion-icon src="assets/icon/check.svg"></ion-icon>Hombre </span></label>
+        <label><input type="checkbox" ><span><ion-icon src="assets/icon/check.svg"></ion-icon>Mujer</span></label>
+
+      </div>
+
+
+   
+
+      
+      <ion-item lines="none" class="terms">
+        <ion-checkbox></ion-checkbox><p>Acepto los términos de privacidad</p>
+      </ion-item>
+
+      
+      <ion-button class="submit" expand="block">Registrarme</ion-button>
+      
+    </form>
+
+</ion-content>

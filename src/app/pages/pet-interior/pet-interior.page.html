@@ -1,0 +1,76 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true">
+  <ion-slide class="slide1">
+  <img class="petimage" src="assets/imgs/levi.jpg">
+  </ion-slide>
+  <ion-slide class="slide1">
+    <img class="petimage" src="assets/imgs/cat.jpg">
+    </ion-slide>
+  </ion-slides>
+  
+  <ion-card class="principal">
+    <ion-icon class="category-icon" src="assets/icon/perro-inv.svg"></ion-icon>
+    <p class="name">Yebe</p>
+    <ion-item lines="none">
+      <p class="label" slot="start">Tipo de animal:</p>
+      <p class="data" slot="end">Perro</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Raza:</p>
+      <p class="data" slot="end">Pinche</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Género:</p>
+      <p class="data" slot="end">Macho</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Edad:</p>
+      <p class="data" slot="end">1 año</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Peso:</p>
+      <p class="data" slot="end">5 kg</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Refugio:</p>
+      <p class="data" slot="end">Refugio de prueba</p>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card class="secondary">
+    <ion-item lines="none">
+      <p class="label" slot="start">Información adicional:</p>
+      
+     
+    </ion-item>
+    <p class="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+    
+  </ion-card>
+
+  <ion-item class="buttons ion-no-padding"  lines="none">
+    <ion-button class="refugio">
+      Ir al refugio
+      
+    </ion-button>
+    <ion-button class="fav">
+      Añadir a favoritos
+      
+    </ion-button>
+
+  </ion-item>
+
+  <ion-button class="submit" expand="block">Solicitar adopción</ion-button>
+</ion-content>

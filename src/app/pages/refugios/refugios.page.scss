@@ -1,0 +1,111 @@
+ion-header{
+    background: white;
+    text-align: center;
+    ion-toolbar{
+        --background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        text-align: center;
+
+        p{
+            color: white;
+            font-size: 20px;
+            margin-left: 3vw;
+            letter-spacing: 2px;
+        }
+        
+        .icon{
+            color: white;
+            width: 25px;
+            height: 25px;
+            
+        }
+
+        ion-badge{
+            background: white;
+            color: black;
+            margin-right: 3vw;
+            width: auto;
+        }
+        
+    }
+}
+
+ion-content{
+    --background: white;
+    .header{
+        background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin-bottom: 5vh;
+
+        .logo{
+            width: 40vw;
+            margin-left: 5vw;
+        }
+    }
+    .selector{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 100vw;
+        padding-top: 4vh;
+        --background: transparent;
+        
+        div{
+            margin: auto;
+            margin-bottom: 4vh;
+            margin-top: 2vh;
+        }
+        ion-icon{
+            width: 30px;
+            height: 30px;
+            margin: 3vw;
+            color: white;
+        }
+        .selected{
+            color: black;
+        }
+    }
+
+    ion-card{
+        margin: auto;
+        margin-bottom: 4vh;
+        width: 90vw;
+        height: 30vw;
+        border-radius: 10px;
+        background: white;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+        
+        img{
+            height: 100%;
+            width: 40vw;
+            border-radius: 10px;
+        }
+
+        .title{
+            color: black;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        ion-item{
+            margin-left: 0;
+            margin-top: 0;
+            padding-bottom: 8vw;
+            height: 35px;
+            --background: transparent;
+            ion-icon{
+                color: #5a9473;
+                margin-right: 3vw;
+                margin-bottom: 2px;
+                font-size: 20px;
+            }
+            p{
+                
+                color: #808080;
+                font-size: 16px;
+            }
+        }
+    }
+}

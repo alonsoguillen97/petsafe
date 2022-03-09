@@ -1,0 +1,154 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar no-padding translucent>
+    
+    <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
+    <ion-icon slot="end" class="icon" src="assets/icon/notifications.svg"></ion-icon>
+    <ion-badge slot="end" color="primary">11</ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item class="categories" lines="none">
+
+
+    <ion-col >
+      <ion-icon class="selected" src="assets/icon/perro-inv.svg"></ion-icon>
+      <p class="category-name selected">Perros</p>
+    </ion-col>
+    
+    <ion-col >
+      <ion-icon src="assets/icon/gato-inv.svg"></ion-icon>
+      <p class="category-name">Gatos</p>
+    </ion-col>
+    
+    
+    <ion-col>
+      <ion-icon src="assets/icon/mas.svg"></ion-icon>
+      <p class="category-name">Otros</p>
+    </ion-col>
+    <ion-col class="buttons">
+      <ion-button class="delete">Eliminar <br> filtros</ion-button>
+      <ion-button fill="outline" color="primary" class="add">Mas <br> filtros</ion-button>
+    </ion-col>
+    
+  </ion-item>
+  <ion-button class="selector"  expand="block" >
+  <ion-select value="distancia" okText="Aceptar" cancelText="Cancelar">
+    <ion-select-option value="edad-asc">Edad ascendente</ion-select-option>
+    <ion-select-option value="edad-desc">Edad descendente</ion-select-option>
+    <ion-select-option value="distancia">Distancia</ion-select-option>
+  </ion-select>
+  </ion-button> 
+
+  <div class="contenedor">
+    <img src="assets/imgs/cat.jpg">
+    <ion-card>
+      
+    </ion-card>
+    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      Yebe
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+     1 año
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>Refugio de prueba</p> 
+    </ion-item>
+  </div>
+
+  <div class="contenedor">
+    <img src="assets/imgs/dog2.jpg">
+    <ion-card>
+      
+    </ion-card>
+    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      Yebe
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+     1 año
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>Refugio de prueba</p> 
+    </ion-item>
+  </div>
+
+  <div class="contenedor">
+    <img src="assets/imgs/levi.jpg">
+    <ion-card>
+
+    </ion-card>
+    <ion-icon class="category-icon" src="assets/icon/gato.svg"></ion-icon>
+    <ion-icon routerLink="/pet-interior" class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      Levi
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+     1 año
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>Refugio de prueba</p> 
+    </ion-item>
+  </div>
+
+  <div class="contenedor">
+    <img src="assets/imgs/tobi.jpg">
+    <ion-card>
+      
+    </ion-card>
+    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      Tobi
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+     6 años
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>Refugio de prueba</p> 
+    </ion-item>
+  </div>
+
+  <div class="contenedor">
+    <img src="assets/imgs/yebe.jpg">
+    <ion-card>
+      
+    </ion-card>
+    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      Yebe
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+     1 año
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>Refugio de prueba</p> 
+    </ion-item>
+  </div>
+
+</ion-content>

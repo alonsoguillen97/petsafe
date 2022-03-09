@@ -1,0 +1,125 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+    --background: white;
+
+    .refugioimage{
+        width: 100vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+    }
+
+    .title{
+        font-weight: bold;
+        background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        color: transparent;
+        background-clip: text;
+        font-size: 30px;
+        
+        margin-left: 5vw;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+    }
+
+    .info{
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+    width: 95vw;
+    background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+    border-top-right-radius: 600px;
+    border-bottom-right-radius: 600px;
+    margin-bottom: 1vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+
+    ion-item{
+        --background: transparent !important;
+        margin-right: 5vw;
+        p{
+            margin-left: 0;
+            margin-right: 10vw;
+            font-size: 16px;
+            color: white;
+        }
+        ion-icon{
+            color: white;
+            margin-left: 3vw;
+            font-size: 25px;
+        }
+    }
+
+    }
+
+    .buttons{
+        --background: transparent !important;
+        width: 100%;
+        margin: auto;
+        margin-left: 4vw;
+        margin-top: 3vh;
+        
+        
+        ion-button{
+            width: 45vw;
+            height: 50px;
+            font-size: 16px;
+            text-transform: none;
+            --border-radius: 14px;
+            --box-shadow: none;
+            color: white;
+            ion-icon{
+                margin-left: 2vw;
+                font-size: 20px;
+            }
+        }
+
+        .refugio{
+            --background: #acacac;
+        }
+
+        .fav{
+            --background: #5a9473;
+            
+        }
+    }
+
+    .texto{
+        color: gray;
+        
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        text-align: left;
+    }
+
+    .submit{
+        --box-shadow: none;
+        width: 90vw;
+        margin: auto;
+        margin-bottom: 4vh;
+        text-transform: none;
+        --border-radius: 14px;
+        font-size: 16px;
+        height: 50px;
+        color: white;
+    }
+}

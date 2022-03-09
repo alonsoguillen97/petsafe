@@ -1,0 +1,117 @@
+ion-header{
+    background: transparent;
+    text-align: center;
+    ion-toolbar{
+        --background: transparent;
+        text-align: center;
+        ion-back-button{
+            color: black;
+        }
+        p{
+            color: black;
+            width: 75vw;
+        }
+        
+    }
+}
+
+ion-content{
+    
+    --background:#F5F5F5;
+
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header{
+        height: 30vh;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        //background: white;
+        background-image: url(../../../assets/imgs/pethand.png) ;
+        background-size:     cover;
+        .logo{
+            margin-top: 1vh;
+            width: 70vw;
+        }
+    }
+
+    .content{
+        background: #F5F5F5;
+        height: 100%;
+        
+    }
+    
+    form{
+        position: absolute;
+        top: 45vh;
+    }
+    
+    ion-item{
+        font-size: 12px;
+        font-weight: 300;
+        --color:black;
+        --background:#F6F7F8;
+        border-radius:15px;
+        margin:0 auto;
+        width: 85vw;
+        margin-bottom: 2vh;
+
+        ion-input{
+            border-bottom: 1px solid;
+            border-color: #dfdfdf;
+        }
+        
+    }
+
+    ion-label{
+        margin-left: 12vw;
+        margin-bottom: 0;
+        font-weight: bold;
+        font-size: 14px;
+        color:#363A3C;
+    }
+
+    .forgot-password{
+       
+        margin-bottom: 4vh;
+        color: #6F7480;
+        font-size: 12px;
+    }
+    .enter{
+        margin-top: 20vh;
+        --background: #9bd1b7;
+        --color: black;
+        width: 80vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        text-transform: none;
+        height: 5vh;
+        font-size: 12px;
+        font-weight: normal;
+        --border-radius:20px;
+        --box-shadow:none;
+    }
+
+    .password{
+        margin-top: 2vh;
+        --background: #afafaf;
+        --color: white;
+        width: 80vw;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        text-transform: none;
+        height: 5vh;
+        font-size: 12px;
+        font-weight: normal;
+        --border-radius:20px;
+        --box-shadow:none;
+    }
+
+    
+   
+    
+    
+}

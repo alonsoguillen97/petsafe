@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar no-padding translucent>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <p>LOGIN</p>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-padding fullscreen scrollY="false">
+  <div class="header">
+    
+    <div class="center">
+    <img class="logo" src="assets/imgs/logoletras.png" alt="">
+    </div>
+  </div>
+  <div class="content">
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+      <ion-label>
+        Email
+      </ion-label>
+      <ion-item lines="none">
+        <ion-input clearInput type="text" placeholder="Usuario" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-label>
+        Contraseña
+      </ion-label>
+      <ion-item lines="none">
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button routerLink="/tab/pets" class="enter" expand="block" type="submit">
+        ENTRAR <ion-icon slot="end" src="assets/icon/arrows.svg"></ion-icon>
+      </ion-button>
+      <ion-button class="password" expand="block" type="submit" [disabled]="!form.valid">
+        He olvidado mi contraseña, enviar mail
+      </ion-button>
+
+      
+    </form>
+  </div>
+</ion-content>

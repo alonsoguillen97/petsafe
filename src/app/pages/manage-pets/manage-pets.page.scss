@@ -1,0 +1,86 @@
+ion-header{
+    background: white;
+    text-align: center;
+    ion-toolbar{
+        --background: transparent;
+        text-align: center;
+        .logo{
+            width: 40vw;
+            margin-left: 5vw;
+        }
+        .create{
+            text-transform: none;
+            --box-shadow: none;
+            margin-right: 5vw;
+            color: white;
+            --border-radius: 10px;
+        }
+
+        ion-back-button{
+            color: black;
+        }
+        
+    }
+}
+
+ion-content{
+    --background: white;
+
+    ion-card{
+        margin: auto;
+        margin-bottom: 4vh;
+        width: 90vw;
+        height: 30vw;
+        border-radius: 10px;
+        background: white;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+        
+        img{
+            height: 30vw;
+            width: 40vw;
+            border-radius: 10px;
+        }
+
+        
+
+        .title{
+            color: black;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        ion-item{
+            margin-left: 0;
+            margin-top: 0;
+            padding-bottom: 8vw;
+            
+            --background: transparent;
+            ion-button{
+                --box-shadow: none;
+                text-transform: none;
+                
+                
+                color: white;
+                height: 4vh;
+                
+            }
+            .edit{
+                --background: #d6d6d6;
+                width: 12vw;
+                
+            }
+
+            .delete{
+                --background: rgb(240, 118, 118);
+                
+            }
+            
+            p{
+                
+                color: #808080;
+                font-size: 16px;
+            }
+        }
+    }
+}
