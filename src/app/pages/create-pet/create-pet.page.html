@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+
+    
+
+    <img (click)="adjuntarImagen()" class="profileimage" *ngIf="this.uploadphoto" src="{{this.base64img}}">
+
+
+    <ion-button class="image" (click)="adjuntarImagen()">
+      <ion-icon src="assets/icon/camera.svg"></ion-icon>
+      <p *ngIf="!this.editImage">Adjuntar imágenes</p>
+      <p *ngIf="this.editImage" class="uploaded">Imagen subida con éxito</p>
+    </ion-button>
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Nombre *
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Nombre de la mascota" formControlName="name"></ion-input>
+
+    </ion-item>
+
+    <ion-button class="select" >
+      <ion-select placeholder="Género *" formControlName="gender">
+        <ion-select-option value="male">Macho</ion-select-option>
+        <ion-select-option value="female">Hembra</ion-select-option>
+      </ion-select>
+    </ion-button>
+
+    <ion-item class="date-selector" lines="none">
+      <ion-label> Fec. Nac *</ion-label>
+      <ion-datetime #myPicker display-format="DD/MM/YYYY" cancelText="Cancelar" doneText="OK" placeholder="Fecha" formControlName="birthdate"
+        ></ion-datetime>
+    </ion-item>
+
+    <ion-button class="select">
+      <ion-select placeholder="Categoría *" formControlName="pet_category_id">
+        <ion-select-option *ngFor="let category of categories" [value]="category?.id">{{category.name}}</ion-select-option>
+      </ion-select>
+    </ion-button>
+
+    <ion-button class="select">
+      <ion-select placeholder="Raza" formControlName="pet_breed_id">
+        <ion-select-option *ngFor="let breed of breeds" [value]="breed?.id">{{breed.name}}</ion-select-option>
+      </ion-select>
+    </ion-button>
+
+    <ion-button class="select" >
+      <ion-select placeholder="Tamaño *" formControlName="size">
+        <ion-select-option value="small">Pequeño</ion-select-option>
+        <ion-select-option value="medium">Mediano</ion-select-option>
+        <ion-select-option value="big">Grande</ion-select-option>
+      </ion-select>
+    </ion-button>
+    
+  
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Peso *
+      </ion-label>
+      <ion-input clearInput type="text" placeholder="Peso" formControlName="weight"></ion-input>
+
+    </ion-item>
+    
+   
+    <ion-textarea formControlName="description">
+      <p>Descripción *</p>
+    </ion-textarea>
+
+
+
+ 
+
+    
+   
+
+    
+    <ion-button type="submit" class="submit" expand="block">Crear mascota</ion-button>
+    
+  </form>
+</ion-content>

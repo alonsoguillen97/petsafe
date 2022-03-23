@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'pets', pathMatch: 'full' },
       { path: 'pets', loadChildren: () => import('../pets/pets.module').then(m => m.PetsPageModule) },
       { path: 'refugio-profile', loadChildren: () => import('../refugio-profile/refugio-profile.module').then(m => m.RefugioProfilePageModule) },
+      { path: 'user-profile', loadChildren: () => import('../user-profile/user-profile.module').then(m => m.UserProfilePageModule) },
       { path: 'info', loadChildren: () => import('../info/info.module').then(m => m.InfoPageModule) },
       { path: 'qr', loadChildren: () => import('../qr/qr.module').then(m => m.QrPageModule) },
       { path: 'refugios', loadChildren: () => import('../refugios/refugios.module').then(m => m.RefugiosPageModule) },

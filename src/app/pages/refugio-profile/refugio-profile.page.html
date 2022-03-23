@@ -9,10 +9,12 @@
  
 
   <ion-avatar>
-    <img src="assets/imgs/refugio.jpg">
+    <img src="{{user?.image}}">
   </ion-avatar>
 
-  <p class="name">Refugio de prueba</p>
+  
+
+  <p class="name">{{user?.name}}</p>
   <br>
 
   <ion-item class="info" lines="none">
@@ -20,7 +22,7 @@
       Nombre
     </ion-label>
 
-    <p slot="end">Refugio de prueba</p>
+    <p slot="end">{{user?.name}}</p>
 
   </ion-item>
 
@@ -29,7 +31,7 @@
       Email
     </ion-label>
 
-    <p slot="end">refugiodeprueba@gmail.com</p>
+    <p slot="end">{{user?.email}}</p>
 
   </ion-item>
 
@@ -38,16 +40,16 @@
       Teléfono
     </ion-label>
 
-    <p slot="end">123456789</p>
+    <p slot="end">{{user?.phone}}</p>
 
   </ion-item>
 
   <ion-item class="info" lines="none">
     <ion-label>
-      Dirección
+      Localidad
     </ion-label>
 
-    <p slot="end">Dirección de prueba</p>
+    <p slot="end">{{user?.location}}</p>
 
   </ion-item>
 
@@ -56,7 +58,7 @@
       Web
     </ion-label>
 
-    <p slot="end">refugiodeprueba.com</p>
+    <p slot="end">{{user?.web}}</p>
 
   </ion-item>
 
@@ -65,7 +67,7 @@
       Link <br> donaciones
     </ion-label>
 
-    <p slot="end">refugiodeprueba.com</p>
+    <p slot="end">{{user?.donation}}</p>
 
   </ion-item>
 

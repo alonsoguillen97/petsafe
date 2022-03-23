@@ -4,6 +4,10 @@ ion-header{
     ion-toolbar{
         --background: transparent;
         text-align: center;
+
+        ion-back-button{
+            color: black;
+        }
         .logo{
             width: 40vw;
             margin-left: 5vw;

@@ -6,24 +6,24 @@
 </ion-header>
 
 <ion-content>
-  <img class="refugioimage" src="assets/imgs/refugio.jpg">
+  <img class="refugioimage" src="{{this.refugio?.image}}">
 
-  <p class="title">Refugio de prueba</p>
+  <p class="title">{{this.refugio?.name}}</p>
 
   <div class="info">
   <ion-item class="item" lines="none">
     <ion-icon slot="start" src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
+    <p>{{this.refugio?.phone}}</p>
   </ion-item>
 
   <ion-item lines="none">
     <ion-icon slot="start" src="assets/icon/location.svg"></ion-icon>
-    <p >Calle santa Lucia 12, Cádiz, España</p>
+    <p >{{this.refugio?.location}}</p>
   </ion-item>
 
   <ion-item lines="none">
     <ion-icon slot="start" src="assets/icon/web.svg"></ion-icon>
-    <p>refugiodeprueba.com</p>
+    <p>{{this.refugio?.web}}</p>
   </ion-item>
   </div>
 

@@ -41,114 +41,28 @@
   </ion-select>
   </ion-button> 
 
-  <div class="contenedor">
-    <img src="assets/imgs/cat.jpg">
+  <div class="contenedor" *ngFor="let pet of pets">
+    <img src="{{pet?.image}}">
     <ion-card>
       
-    </ion-card>
-    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
-    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
-    <ion-item lines="none" class="name">
-      <p>Nombre:</p>
-      Yebe
-    </ion-item>
-    <ion-item lines="none" class="age">
-      <p>Edad:</p>
-     1 año
-    </ion-item>
-    <ion-item lines="none" class="refugio">
-      
-      <ion-icon src="assets/icon/home.svg"></ion-icon>
-      <p>Refugio de prueba</p> 
-    </ion-item>
-  </div>
-
-  <div class="contenedor">
-    <img src="assets/imgs/dog2.jpg">
-    <ion-card>
-      
-    </ion-card>
-    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
-    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
-    <ion-item lines="none" class="name">
-      <p>Nombre:</p>
-      Yebe
-    </ion-item>
-    <ion-item lines="none" class="age">
-      <p>Edad:</p>
-     1 año
-    </ion-item>
-    <ion-item lines="none" class="refugio">
-      
-      <ion-icon src="assets/icon/home.svg"></ion-icon>
-      <p>Refugio de prueba</p> 
-    </ion-item>
-  </div>
-
-  <div class="contenedor">
-    <img src="assets/imgs/levi.jpg">
-    <ion-card>
-
     </ion-card>
     <ion-icon class="category-icon" src="assets/icon/gato.svg"></ion-icon>
-    <ion-icon routerLink="/pet-interior" class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
     <ion-item lines="none" class="name">
       <p>Nombre:</p>
-      Levi
+      {{pet?.name}}
     </ion-item>
     <ion-item lines="none" class="age">
       <p>Edad:</p>
-     1 año
+      {{pet?.birthdate}}
     </ion-item>
     <ion-item lines="none" class="refugio">
       
       <ion-icon src="assets/icon/home.svg"></ion-icon>
-      <p>Refugio de prueba</p> 
+      <p>{{pet?.user?.name}}</p> 
     </ion-item>
   </div>
 
-  <div class="contenedor">
-    <img src="assets/imgs/tobi.jpg">
-    <ion-card>
-      
-    </ion-card>
-    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
-    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
-    <ion-item lines="none" class="name">
-      <p>Nombre:</p>
-      Tobi
-    </ion-item>
-    <ion-item lines="none" class="age">
-      <p>Edad:</p>
-     6 años
-    </ion-item>
-    <ion-item lines="none" class="refugio">
-      
-      <ion-icon src="assets/icon/home.svg"></ion-icon>
-      <p>Refugio de prueba</p> 
-    </ion-item>
-  </div>
-
-  <div class="contenedor">
-    <img src="assets/imgs/yebe.jpg">
-    <ion-card>
-      
-    </ion-card>
-    <ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>
-    <ion-icon class="enter-icon" src="assets/icon/enter.svg"></ion-icon>
-    <ion-item lines="none" class="name">
-      <p>Nombre:</p>
-      Yebe
-    </ion-item>
-    <ion-item lines="none" class="age">
-      <p>Edad:</p>
-     1 año
-    </ion-item>
-    <ion-item lines="none" class="refugio">
-      
-      <ion-icon src="assets/icon/home.svg"></ion-icon>
-      <p>Refugio de prueba</p> 
-    </ion-item>
-  </div>
+  
 
 </ion-content>

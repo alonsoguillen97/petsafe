@@ -63,6 +63,22 @@ const routes: Routes = [
     path: 'manage-pets',
     loadChildren: () => import('./pages/manage-pets/manage-pets.module').then( m => m.ManagePetsPageModule)
   },
+  {
+    path: 'register-refugio',
+    loadChildren: () => import('./pages/register-refugio/register-refugio.module').then( m => m.RegisterRefugioPageModule)
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./pages/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+  },
+  {
+    path: 'tab1',
+    loadChildren: () => import('./pages/tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'create-pet',
+    loadChildren: () => import('./pages/create-pet/create-pet.module').then( m => m.CreatePetPageModule)
+  },
 ];
 
 @NgModule({

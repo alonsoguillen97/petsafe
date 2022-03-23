@@ -7,104 +7,30 @@
     <div>
     <ion-icon src="assets/icon/album.svg"></ion-icon>
     <ion-icon src="assets/icon/grid.svg"></ion-icon>
-    <ion-icon src="assets/icon/map.svg"></ion-icon>
+    <ion-icon src="assets/icon/map.svg" routerLink="/map"></ion-icon>
     </div>
   </ion-item>
 </div>
 
-<ion-card routerLink="/refugio-interior">
+<ion-card *ngFor="let user of users" (click)="goToInteriorRefugio(user)">
   <ion-row class="ion-no-padding">
   <ion-col class="ion-no-padding">
-    <img src="assets/imgs/refugio.jpg" alt="">
+    <img src="{{user?.image}}" alt="">
   </ion-col>
   <ion-col class="ion-no-padding">
-  <p class="title">Refugio de prueba</p>
+  <p class="title">{{user?.name}}</p>
   <ion-item class="ion-no-padding" lines="none">
     <ion-icon src="assets/icon/location.svg"></ion-icon>
-    <p>Cádiz</p>
+    <p>{{user?.location}}</p>
   </ion-item>
   <ion-item class="ion-no-padding" lines="none">
     <ion-icon src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
+    <p>{{user?.phone}}</p>
   </ion-item>
   </ion-col>
 </ion-row>
 </ion-card>
 
-<ion-card routerLink="/refugio-interior">
-  <ion-row class="ion-no-padding">
-  <ion-col class="ion-no-padding">
-    <img src="assets/imgs/refugio.jpg" alt="">
-  </ion-col>
-  <ion-col class="ion-no-padding">
-  <p class="title">Refugio de prueba</p>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/location.svg"></ion-icon>
-    <p>Cádiz</p>
-  </ion-item>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
-  </ion-item>
-  </ion-col>
-</ion-row>
-</ion-card>
 
-<ion-card routerLink="/refugio-interior">
-  <ion-row class="ion-no-padding">
-  <ion-col class="ion-no-padding">
-    <img src="assets/imgs/refugio.jpg" alt="">
-  </ion-col>
-  <ion-col class="ion-no-padding">
-  <p class="title">Refugio de prueba</p>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/location.svg"></ion-icon>
-    <p>Cádiz</p>
-  </ion-item>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
-  </ion-item>
-  </ion-col>
-</ion-row>
-</ion-card>
-
-<ion-card routerLink="/refugio-interior">
-  <ion-row class="ion-no-padding">
-  <ion-col class="ion-no-padding">
-    <img src="assets/imgs/refugio.jpg" alt="">
-  </ion-col>
-  <ion-col class="ion-no-padding">
-  <p class="title">Refugio de prueba</p>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/location.svg"></ion-icon>
-    <p>Cádiz</p>
-  </ion-item>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
-  </ion-item>
-  </ion-col>
-</ion-row>
-</ion-card>
-
-<ion-card routerLink="/refugio-interior">
-  <ion-row class="ion-no-padding">
-  <ion-col class="ion-no-padding">
-    <img src="assets/imgs/refugio.jpg" alt="">
-  </ion-col>
-  <ion-col class="ion-no-padding">
-  <p class="title">Refugio de prueba</p>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/location.svg"></ion-icon>
-    <p>Cádiz</p>
-  </ion-item>
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-icon src="assets/icon/phone.svg"></ion-icon>
-    <p>123456789</p>
-  </ion-item>
-  </ion-col>
-</ion-row>
-</ion-card>
 
 </ion-content>

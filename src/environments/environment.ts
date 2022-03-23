@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/petsafe/public/api/auth/'
+
+  //Navegador
+  //apiUrl: 'http://localhost/petsafe-laravel/public/api/auth/'
+
+  //Dispositivo movil
+  apiUrl: 'http://192.168.1.135:8000/api/auth/'
 };
 
 /*

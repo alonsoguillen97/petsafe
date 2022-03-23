@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Pet } from 'src/app/models/Pet';
 
 @Component({
   selector: 'app-pet-interior',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetInteriorPage implements OnInit {
 
-  constructor() { }
+  pet: Pet;
+
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.pet = history.state.pet;
+  }
+
+
+  goToInteriorRefugio() {
+    
+    this.navCtrl.navigateForward('/refugio-interior', {
+      state: {
+        refugio: this.pet.user
+      }
+    });
   }
 
 }

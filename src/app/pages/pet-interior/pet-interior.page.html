@@ -8,44 +8,44 @@
 <ion-content>
   <ion-slides pager="true">
   <ion-slide class="slide1">
-  <img class="petimage" src="assets/imgs/levi.jpg">
+  <img class="petimage" src="{{this.pet?.image}}">
   </ion-slide>
   <ion-slide class="slide1">
-    <img class="petimage" src="assets/imgs/cat.jpg">
+    <img class="petimage" src="{{this.pet?.image}}">
     </ion-slide>
   </ion-slides>
   
   <ion-card class="principal">
     <ion-icon class="category-icon" src="assets/icon/perro-inv.svg"></ion-icon>
-    <p class="name">Yebe</p>
+    <p class="name">{{this.pet?.name}}</p>
     <ion-item lines="none">
       <p class="label" slot="start">Tipo de animal:</p>
-      <p class="data" slot="end">Perro</p>
+      <p class="data" slot="end">{{this.pet?.category?.name}}</p>
     </ion-item>
 
     <ion-item lines="none">
       <p class="label" slot="start">Raza:</p>
-      <p class="data" slot="end">Pinche</p>
+      <p class="data" slot="end">{{this.pet?.breed?.name}}</p>
     </ion-item>
 
     <ion-item lines="none">
       <p class="label" slot="start">Género:</p>
-      <p class="data" slot="end">Macho</p>
+      <p class="data" slot="end">{{this.pet?.gender}}</p>
     </ion-item>
 
     <ion-item lines="none">
       <p class="label" slot="start">Edad:</p>
-      <p class="data" slot="end">1 año</p>
+      <p class="data" slot="end">{{this.pet?.birthdate}}</p>
     </ion-item>
 
     <ion-item lines="none">
       <p class="label" slot="start">Peso:</p>
-      <p class="data" slot="end">5 kg</p>
+      <p class="data" slot="end">{{this.pet?.weight}} kg</p>
     </ion-item>
 
     <ion-item lines="none">
       <p class="label" slot="start">Refugio:</p>
-      <p class="data" slot="end">Refugio de prueba</p>
+      <p class="data" slot="end">{{this.pet?.user?.name}}</p>
     </ion-item>
 
   </ion-card>
@@ -56,12 +56,12 @@
       
      
     </ion-item>
-    <p class="content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+    <p class="content">{{this.pet?.description}}</p>
     
   </ion-card>
 
   <ion-item class="buttons ion-no-padding"  lines="none">
-    <ion-button class="refugio">
+    <ion-button class="refugio" (click)="goToInteriorRefugio()">
       Ir al refugio
       
     </ion-button>

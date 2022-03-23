@@ -1,12 +1,12 @@
 <ion-header class="ion-no-border">
   <ion-toolbar no-padding translucent>
-    
+    <ion-back-button slot="start"></ion-back-button>
     <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
     
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
 
       <div class="selectimage">
         <ion-icon src="assets/icon/camera.svg"></ion-icon>
@@ -17,7 +17,7 @@
           Nombre
         </ion-label>
 
-        <ion-input clearInput type="text" placeholder="Nombre" required></ion-input>
+        <ion-input clearInput type="text" placeholder="Nombre" formControlName="name"></ion-input>
 
       </ion-item>
       <ion-item class="item" lines="none">
@@ -25,7 +25,7 @@
           Apellidos
         </ion-label>
 
-        <ion-input clearInput type="text" placeholder="Apellidos" required></ion-input>
+        <ion-input clearInput type="text" placeholder="Apellidos" ></ion-input>
 
       </ion-item>
         
@@ -39,14 +39,14 @@
           Email
         </ion-label>
 
-        <ion-input clearInput type="email" placeholder="Email" required></ion-input>
+        <ion-input clearInput type="email" placeholder="Email" formControlName="email"></ion-input>
 
       </ion-item>
       <ion-item class="item" lines="none">
         <ion-label>
           Contraseña
         </ion-label>
-        <ion-input clearInput type="password" placeholder="Contraseña" required></ion-input>
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
 
       </ion-item>
       <ion-item class="item" lines="none">
@@ -54,7 +54,7 @@
           Confirmar contraseña
         </ion-label>
 
-        <ion-input clearInput type="password" placeholder="Contraseña" required></ion-input>
+        <ion-input clearInput type="password" placeholder="Contraseña"></ion-input>
 
       </ion-item>
       <ion-item class="item" lines="none">
@@ -62,7 +62,7 @@
           Telefono
         </ion-label>
 
-        <ion-input clearInput type="tel" placeholder="Teléfono" required>
+        <ion-input clearInput type="tel" placeholder="Teléfono" >
 
         </ion-input>
       </ion-item>
@@ -73,7 +73,7 @@
         Dirección
       </ion-label>
 
-      <ion-input clearInput type="text" placeholder="Dirección" required></ion-input>
+      <ion-input clearInput type="text" placeholder="Dirección" ></ion-input>
 
     </ion-item>
 
@@ -95,7 +95,7 @@
       </ion-item>
 
       
-      <ion-button class="submit" expand="block">Registrarme</ion-button>
+      <ion-button type="submit" class="submit" expand="block">Registrarme</ion-button>
       
     </form>
 

@@ -1,0 +1,96 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar no-padding translucent>
+    
+    <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+      <div *ngIf="!this.uploadphoto" class="selectimage" (click)="adjuntarImagen()">
+        <ion-icon src="assets/icon/camera.svg"></ion-icon>
+      </div>
+
+      <img (click)="adjuntarImagen()" class="profileimage" *ngIf="this.uploadphoto" src="{{this.base64img}}">
+
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Nombre
+        </ion-label>
+
+        <ion-input clearInput type="text" placeholder="Nombre del refugio" formControlName="name"></ion-input>
+
+      </ion-item>
+      
+        
+      
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Email
+        </ion-label>
+
+        <ion-input clearInput type="email" placeholder="Email" formControlName="email"></ion-input>
+
+      </ion-item>
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Contraseña
+        </ion-label>
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+
+      </ion-item>
+      
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Telefono
+        </ion-label>
+
+        <ion-input clearInput type="tel" placeholder="Teléfono" formControlName="phone">
+
+        </ion-input>
+      </ion-item>
+    
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Localidad
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Localidad" formControlName="location"></ion-input>
+
+    </ion-item>
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Web
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Web" formControlName="web"></ion-input>
+
+    </ion-item>
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Enlace <br> Donaciones
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Enlace para donaciones" formControlName="donation"></ion-input>
+
+    </ion-item>
+
+  
+
+
+   
+
+      
+      <ion-item lines="none" class="terms">
+        <ion-checkbox></ion-checkbox><p>Acepto los términos de privacidad</p>
+      </ion-item>
+
+      
+      <ion-button type="submit" class="submit" expand="block">Registrarme</ion-button>
+      
+    </form>
+
+</ion-content>
