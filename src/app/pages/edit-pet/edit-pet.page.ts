@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PetBreed } from 'src/app/models/PetBreed';
-import { PetCategory } from 'src/app/models/PetCategory';
-import { AuthService } from 'src/app/services/auth.service';
-import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
-import { UtilitiesService } from 'src/app/services/utilities.service';
 import { NavController } from '@ionic/angular';
 import { Pet } from 'src/app/models/Pet';
+import { AuthService } from 'src/app/services/auth.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 import * as moment from 'moment';
+import { PetCategory } from 'src/app/models/PetCategory';
+import { PetBreed } from 'src/app/models/PetBreed';
 
 @Component({
-  selector: 'app-create-pet',
-  templateUrl: './create-pet.page.html',
-  styleUrls: ['./create-pet.page.scss'],
+  selector: 'app-edit-pet',
+  templateUrl: './edit-pet.page.html',
+  styleUrls: ['./edit-pet.page.scss'],
 })
-export class CreatePetPage implements OnInit {
+export class EditPetPage implements OnInit {
 
-  public form: FormGroup;
+  pet: Pet;
   public editImage: boolean = false;
+  public form: FormGroup;
+  public base64img: string;
   categories: PetCategory[]=[];
   breeds: PetBreed[]=[];
-  public base64img: string;
+  
 
   constructor(private formBuilder: FormBuilder,
     private apiService: AuthService,
-    private camera: Camera,
     private utilitiesService: UtilitiesService,
-    private navCtrl: NavController,) { }
+    private navCtrl: NavController,
+    private camera: Camera,) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -50,36 +52,47 @@ export class CreatePetPage implements OnInit {
       this.breeds = breeds;
       console.log(this.breeds);
     });
+
+    this.pet = history.state.pet;
+
+    console.log(this.pet);
   }
 
 
   async submitForm(){
+    
     let newdate = this.form.get('birthdate').value;
     newdate = moment(newdate).format('YYYY-MM-DD');
-    
 
-    
 
     this.form.patchValue({
       birthdate: newdate,
     })
+
+    if(this.form.get('birthdate').value == 'Invalid date'){
+      this.form.patchValue({
+        birthdate: null,
+      })
+    }
+
+    console.log(this.form.get('birthdate').value);
+   
+    
+  
+
     console.log(this.form.value);
-    //this.authService.register(this.form.value)
 
-    this.apiService.addEntity('create-pet', this.form.value).subscribe((pet: Pet) => {
-      
+    this.apiService.addEntity(`update-pet/${this.pet.id}`,this.form.value).subscribe((pet: Pet) => {
       this.utilitiesService.dismissLoading();
-
-      this.utilitiesService.showToast('Mascota creada correctamente');
-
+      this.utilitiesService.showToast('Mascota actualizada correctamente');
       this.navCtrl.navigateRoot('/tab1/refugio-profile');
-
     }, (error) => {
-      
       this.utilitiesService.dismissLoading();
-      this.utilitiesService.showToast((error));
-
+      this.utilitiesService.showToast('Error al editar la mascota');
     });
+    
+    this.form.reset();
+    this.editImage = false;
   }
 
 
@@ -109,6 +122,5 @@ export class CreatePetPage implements OnInit {
       this.editImage = false;
     })
   }
-  
 
 }

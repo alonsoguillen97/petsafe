@@ -79,6 +79,10 @@ const routes: Routes = [
     path: 'create-pet',
     loadChildren: () => import('./pages/create-pet/create-pet.module').then( m => m.CreatePetPageModule)
   },
+  {
+    path: 'edit-pet',
+    loadChildren: () => import('./pages/edit-pet/edit-pet.module').then( m => m.EditPetPageModule)
+  },
 ];
 
 @NgModule({

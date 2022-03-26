@@ -19,6 +19,10 @@ export class ManagePetsPage implements OnInit {
     private utilitiesService: UtilitiesService) { }
 
   ngOnInit() {
+    
+  }
+
+  ionViewWillEnter(){
     this.apiService.getEntity('own-pets').subscribe(async (pets: Pet[]) => {
       this.pets = pets;
       console.log(this.pets);
@@ -29,6 +33,15 @@ export class ManagePetsPage implements OnInit {
   goToInteriorPet(pet) {
     
     this.navCtrl.navigateForward('/pet-interior', {
+      state: {
+        pet: pet
+      }
+    });
+  }
+
+  goToEditPet(pet) {
+    
+    this.navCtrl.navigateForward('/edit-pet', {
       state: {
         pet: pet
       }

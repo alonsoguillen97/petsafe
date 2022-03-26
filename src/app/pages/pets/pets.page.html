@@ -13,13 +13,13 @@
 
 
     <ion-col >
-      <ion-icon class="selected" src="assets/icon/perro-inv.svg"></ion-icon>
-      <p class="category-name selected">Perros</p>
+      <ion-icon id="1" (click)="filterEventsByCategory('1')" [class.selected]="selectedcategory == 1" src="assets/icon/perro-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 1">Perros</p>
     </ion-col>
     
     <ion-col >
-      <ion-icon src="assets/icon/gato-inv.svg"></ion-icon>
-      <p class="category-name">Gatos</p>
+      <ion-icon id="2" (click)="filterEventsByCategory('2')" [class.selected]="selectedcategory == 2" src="assets/icon/gato-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 2">Gatos</p>
     </ion-col>
     
     
@@ -28,7 +28,7 @@
       <p class="category-name">Otros</p>
     </ion-col>
     <ion-col class="buttons">
-      <ion-button class="delete">Eliminar <br> filtros</ion-button>
+      <ion-button class="delete" (click)="removeFilters()">Eliminar <br> filtros</ion-button>
       <ion-button fill="outline" color="primary" class="add">Mas <br> filtros</ion-button>
     </ion-col>
     
@@ -41,12 +41,14 @@
   </ion-select>
   </ion-button> 
 
-  <div class="contenedor" *ngFor="let pet of pets">
+
+  <div  *ngIf="pets?.length > 0 && filteredPets?.length === 0 && filteredFromFilterPage == false">
+  <div class="contenedor" *ngFor="let pet of pets" >
     <img src="{{pet?.image}}">
     <ion-card>
       
     </ion-card>
-    <ion-icon class="category-icon" src="assets/icon/gato.svg"></ion-icon>
+    <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
     <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
     <ion-item lines="none" class="name">
       <p>Nombre:</p>
@@ -61,6 +63,32 @@
       <ion-icon src="assets/icon/home.svg"></ion-icon>
       <p>{{pet?.user?.name}}</p> 
     </ion-item>
+  </div>
+  </div>
+
+
+  <div  *ngIf="filteredPets?.length > 0">
+  <div class="contenedor" *ngFor="let pet of filteredPets">
+    <img src="{{pet?.image}}">
+    <ion-card>
+      
+    </ion-card>
+    <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      {{pet?.name}}
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+      {{pet?.birthdate}}
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>{{pet?.user?.name}}</p> 
+    </ion-item>
+  </div>
   </div>
 
   
