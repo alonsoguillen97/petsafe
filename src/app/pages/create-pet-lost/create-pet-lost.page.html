@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="title">DENUNCIAR <br> ABANDONO</p>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="submitForm()">
+
+    
+
+    <img (click)="adjuntarImagen()" class="profileimage" *ngIf="this.uploadphoto" src="{{this.base64img}}">
+
+
+    <ion-button class="image" (click)="adjuntarImagen()">
+      <ion-icon src="assets/icon/camera.svg"></ion-icon>
+      <p *ngIf="!this.editImage">Adjuntar imágenes</p>
+      <p *ngIf="this.editImage" class="uploaded">Imagen subida con éxito</p>
+    </ion-button>
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Ubicación
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="Ubicación" formControlName="location"></ion-input>
+
+    </ion-item>
+
+
+    <div class="predictions" *ngIf="!clickedInPrediction && predictions?.length > 0">
+      <h4 class="ion-text-left results" style="margin-top: 30px; font-weight: bold;">RESULTADOS</h4>
+      <ion-item class="ion-text-wrap itempredictions" lines="none" *ngFor="let prediction of predictions"
+        (click)="choosePrediction(prediction)">
+        <ion-label>{{prediction?.description}}</ion-label>
+      </ion-item>
+      <div class="map-wrapper" style="display: none;">
+        <div id="modal_map_canvas" style="height: 150px; width: 150px; visibility:hidden;"></div>
+      </div>
+    </div>
+
+
+    
+   
+    <ion-textarea formControlName="description">
+      <p>Descripción *</p>
+    </ion-textarea>
+
+
+
+ 
+
+    
+   
+
+    
+    <ion-button type="submit" class="submit" expand="block">Publicar</ion-button>
+    
+  </form>
+</ion-content>

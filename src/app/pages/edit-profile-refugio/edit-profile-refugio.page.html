@@ -1,0 +1,103 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar no-padding translucent>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+    <img (click)="adjuntarImagen()" class="profileimage" *ngIf="!this.uploadphoto" src="{{this.user?.image}}">
+
+    <img (click)="adjuntarImagen()" class="profileimage" *ngIf="this.uploadphoto" src="{{this.base64img}}">
+
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Nombre
+      </ion-label>
+
+      <ion-input clearInput type="text" placeholder="{{this.user?.name}}" formControlName="name"></ion-input>
+
+    </ion-item>
+    
+      
+    
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Email
+      </ion-label>
+
+      <ion-input clearInput type="email" placeholder="{{this.user?.email}}" formControlName="email"></ion-input>
+
+    </ion-item>
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Contraseña
+      </ion-label>
+      <ion-input clearInput type="password" placeholder="********" formControlName="password"></ion-input>
+
+    </ion-item>
+    
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Telefono
+      </ion-label>
+
+      <ion-input clearInput type="tel" placeholder="{{this.user?.phone}}" formControlName="phone">
+
+      </ion-input>
+    </ion-item>
+  
+
+  <ion-item class="item" lines="none">
+    <ion-label>
+      Localidad
+    </ion-label>
+
+    <ion-input clearInput type="text" placeholder="{{this.user?.location}}" formControlName="location"></ion-input>
+
+  </ion-item>
+
+
+  <div class="predictions" *ngIf="!clickedInPrediction && predictions?.length > 0">
+    <h4 class="ion-text-left results" style="margin-top: 30px; font-weight: bold;">RESULTADOS</h4>
+    <ion-item class="ion-text-wrap itempredictions" lines="none" *ngFor="let prediction of predictions"
+      (click)="choosePrediction(prediction)">
+      <ion-label>{{prediction?.description}}</ion-label>
+    </ion-item>
+    <div class="map-wrapper" style="display: none;">
+      <div id="modal_map_canvas" style="height: 150px; width: 150px; visibility:hidden;"></div>
+    </div>
+  </div>
+
+
+  <ion-item class="item" lines="none">
+    <ion-label>
+      Web
+    </ion-label>
+
+    <ion-input clearInput type="text" placeholder="{{this.user?.web}}" formControlName="web"></ion-input>
+
+  </ion-item>
+
+  <ion-item class="item" lines="none">
+    <ion-label>
+      Enlace <br> Donaciones
+    </ion-label>
+
+    <ion-input clearInput type="text" placeholder="{{this.user?.donation}}" formControlName="donation"></ion-input>
+
+  </ion-item>
+
+    
+    <ion-button type="submit" class="submit" expand="block">Guardar cambios</ion-button>
+    
+  </form>
+
+  <ion-button class="logout" (click)="auth.logout()" expand="block">
+    Cerrar sesión
+    <ion-icon src="assets/icon/logout.svg"></ion-icon>
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,138 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .close{
+            color: black;
+            font-size: 20px;
+            margin-left: 3vw;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+
+    --background: white;
+
+    ion-label{
+        color: black;
+        margin-left: 5vw;
+    }
+
+    .check{
+        --background: transparent !important;
+        margin-left: 5vw;
+
+        ion-checkbox{
+            width: 20px;
+            height: 20px;
+            --border-radius: 100px;
+        }
+        p{
+            margin-left: 5vw;
+            color: black;
+        }
+    }
+
+    .categories{
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+      --background: transparent;
+
+      
+        .buttons{
+            margin-left: 5vw;
+            
+        }
+        
+        ion-col{
+            text-align: center;
+            margin-right: 0;
+
+            .delete{
+                --background: #d6d6d6;
+            }
+
+            .add{
+                --background: white;
+                color: #d6d6d6;
+                border: 1px;
+            }
+           
+            ion-button{
+                --color: white;
+                width: 22vw;
+                --box-shadow: none;
+                --border-radius: 10px;
+                height: 5vh;
+                text-transform: none;
+            }
+            
+            ion-icon{
+                color: #9bd1b7;
+                font-size: 14vw;
+                opacity: 0.5;
+            }
+            
+            .category-name{
+                margin-top:5px;
+                padding:0;
+                font-size: 12px;
+                
+            }
+    
+            p{
+                opacity: 0.5; 
+                color: #9bd1b7;
+            }
+
+            .selected{
+                color: #053f2c;
+            }
+            
+        }
+    }
+
+
+    .selector{
+        color: black;
+        margin-left: 5vw;
+        width: 90vw;
+        height: 4vh;
+        --background: #d6d6d6;
+        --border-radius: 10px;
+        text-transform: none;
+        --box-shadow: none;
+        ion-select{
+            width: 100%;
+            height: 90%;
+            text-align: left;
+          }
+    }
+
+
+    .submit{
+        --box-shadow: none;
+        width: 80vw;
+        margin: auto;
+        margin-top: 4vh;
+        margin-bottom: 8vh;
+        text-transform: none;
+        --border-radius: 14px;
+        font-size: 16px;
+        height: 50px;
+        color: white;
+        --background: #053f2c;
+    }
+
+}

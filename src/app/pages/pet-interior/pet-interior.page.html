@@ -16,7 +16,7 @@
   </ion-slides>
   
   <ion-card class="principal">
-    <ion-icon class="category-icon" src="assets/icon/perro-inv.svg"></ion-icon>
+    <ion-icon class="category-icon" src="{{this.pet?.category?.icon}}"></ion-icon>
     <p class="name">{{this.pet?.name}}</p>
     <ion-item lines="none">
       <p class="label" slot="start">Tipo de animal:</p>
@@ -34,7 +34,7 @@
     </ion-item>
 
     <ion-item lines="none">
-      <p class="label" slot="start">Edad:</p>
+      <p class="label" slot="start">F.nac:</p>
       <p class="data" slot="end">{{this.pet?.birthdate}}</p>
     </ion-item>
 
@@ -46,6 +46,18 @@
     <ion-item lines="none">
       <p class="label" slot="start">Refugio:</p>
       <p class="data" slot="end">{{this.pet?.user?.name}}</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Cuidados especiales:</p>
+      <p *ngIf="this.pet?.special_cares==1" class="data" slot="end">Si</p>
+      <p *ngIf="this.pet?.special_cares==0" class="data" slot="end">No</p>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p class="label" slot="start">Necesita licencia ppp:</p>
+      <p *ngIf="this.pet?.dangerous==1" class="data" slot="end">Si</p>
+      <p *ngIf="this.pet?.dangerous==0" class="data" slot="end">No</p>
     </ion-item>
 
   </ion-card>
@@ -60,17 +72,23 @@
     
   </ion-card>
 
-  <ion-item class="buttons ion-no-padding"  lines="none">
+  <ion-item *ngIf="this.user?.role_id == 2" class="buttons ion-no-padding"  lines="none">
     <ion-button class="refugio" (click)="goToInteriorRefugio()">
       Ir al refugio
       
     </ion-button>
-    <ion-button class="fav">
+    <ion-button class="fav" *ngIf="!this.pet.liked" (click)="likePet(pet)" expand="block">
       Añadir a favoritos
+      
+    </ion-button>
+    <ion-button class="nofav" *ngIf="this.pet.liked" (click)="unlikePet(pet)" expand="block">
+      Añadido a favoritos
       
     </ion-button>
 
   </ion-item>
 
-  <ion-button class="submit" expand="block">Solicitar adopción</ion-button>
+  <ion-button *ngIf="this.user?.role_id == 3" class="submit" expand="block" (click)="goToInteriorRefugio()">Ir al refugio</ion-button>
+
+  <ion-button *ngIf="this.user?.role_id == 2" class="submit" expand="block" (click)="goToAdoptionForm()">Solicitar adopción</ion-button>
 </ion-content>

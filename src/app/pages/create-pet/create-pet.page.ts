@@ -20,7 +20,11 @@ export class CreatePetPage implements OnInit {
   public editImage: boolean = false;
   categories: PetCategory[]=[];
   breeds: PetBreed[]=[];
+  filteredBreeds: PetBreed[]=[];
   public base64img: string;
+  special_cares: boolean = false;
+  dangerous_breed: boolean = false;
+  filtered: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private apiService: AuthService,
@@ -36,7 +40,10 @@ export class CreatePetPage implements OnInit {
       pet_category_id: ['', Validators.required],
       pet_breed_id: [''],
       size: ['', Validators.required],
+      activity: ['', Validators.required],
       weight: ['', Validators.required],
+      special_cares: [''],
+      dangerous: [''],
       description: ['', Validators.required],
       image: ['']
     });
@@ -53,6 +60,34 @@ export class CreatePetPage implements OnInit {
   }
 
 
+  updateCares(){
+    if(this.special_cares == false){
+      this.special_cares = true;
+      console.log(this.special_cares);
+    }else if(this.special_cares == true){
+      this.special_cares = false;
+      console.log(this.special_cares);
+    }
+  }
+
+  updateBreed(){
+    if(this.dangerous_breed == false){
+      this.dangerous_breed = true;
+      console.log(this.dangerous_breed);
+    }else if(this.dangerous_breed == true){
+      this.dangerous_breed = false;
+      console.log(this.dangerous_breed);
+    }
+  }
+
+  onCategoryClickAction($id) {
+
+    console.log($id.detail.value)
+    this.filteredBreeds = this.breeds.filter(item => item.category_id == $id.detail.value);
+    this.filtered = true;
+  }
+
+
   async submitForm(){
     let newdate = this.form.get('birthdate').value;
     newdate = moment(newdate).format('YYYY-MM-DD');
@@ -62,6 +97,8 @@ export class CreatePetPage implements OnInit {
 
     this.form.patchValue({
       birthdate: newdate,
+      special_cares: this.special_cares,
+      dangerous: this.dangerous_breed
     })
     console.log(this.form.value);
     //this.authService.register(this.form.value)

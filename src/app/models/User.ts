@@ -4,8 +4,13 @@ export interface User {
     id?: number,
     name?: string,
     email?: string,
+    phone?:string,
     password?: string,
     api_token?: string,
-    id_rol?: number
-    
+    role_id?: number
+    latitude?:string,
+    longitude?:string,
+    image?:string,
+    location?:string,
+    authorized?:boolean
 }

@@ -35,12 +35,41 @@ export class AuthService {
     }
 
     /**
-   * Método para el registro básico
+   * Método para el registro básico refugio
    * @param user 
    */
      public registerrefugio(user: User) {
       console.log(environment.apiUrl + 'registerrefugio')
       return this.http.post(environment.apiUrl + 'registerrefugio', user);
+    }
+
+
+     /**
+   * Método para actualizar los datos de un refugio
+   * @param user 
+   */
+  public updaterefugio(user: User): any {
+    this.userChanges.next(user);
+    return this.http.post<User>(environment.apiUrl + 'update-refugio', user, this.httpOptions);
+  }
+
+    /**
+   * Método para actualizar los datos de un usuario
+   * @param user 
+   */
+     public updateuser(user: User): any {
+      this.userChanges.next(user);
+      return this.http.post<User>(environment.apiUrl + 'update-user', user, this.httpOptions);
+    }
+
+
+    /**
+   * Método para el registro básico usuario normal
+   * @param user 
+   */
+     public registeruser(user: User) {
+      console.log(environment.apiUrl + 'registeruser')
+      return this.http.post(environment.apiUrl + 'registeruser', user);
     }
 
     /*

@@ -1,0 +1,21 @@
+.info{
+    margin-top: 1vw;
+    font-size: 9vw;
+}
+
+ion-tab-bar, ion-tab-button{
+    background-color: white;
+   }
+
+   ion-tab-button {
+    --color: rgb(41, 41, 41);
+    --color-selected: #5a9473;
+  
+  }
+
+  :host {
+    ion-tab-bar {
+     border: 0;
+     margin-top: -1px;
+   }
+}

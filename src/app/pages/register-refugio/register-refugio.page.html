@@ -16,10 +16,10 @@
 
       <ion-item class="item" lines="none">
         <ion-label>
-          Nombre
+          Nombre *
         </ion-label>
 
-        <ion-input clearInput type="text" placeholder="Nombre del refugio" formControlName="name"></ion-input>
+        <ion-input clearInput type="text" placeholder="Nombre del refugio" formControlName="name" required></ion-input>
 
       </ion-item>
       
@@ -27,26 +27,34 @@
       
       <ion-item class="item" lines="none">
         <ion-label>
-          Email
+          Email *
         </ion-label>
 
-        <ion-input clearInput type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-input clearInput type="email" placeholder="Email" formControlName="email" required></ion-input>
 
       </ion-item>
       <ion-item class="item" lines="none">
         <ion-label>
-          Contraseña
+          Contraseña *
         </ion-label>
-        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
+
+      </ion-item>
+
+      <ion-item class="item" lines="none">
+        <ion-label>
+          Contraseña *
+        </ion-label>
+        <ion-input clearInput type="password" placeholder="Confirmar contraseña" formControlName="password_confirmation" required></ion-input>
 
       </ion-item>
       
       <ion-item class="item" lines="none">
         <ion-label>
-          Telefono
+          Telefono *
         </ion-label>
 
-        <ion-input clearInput type="tel" placeholder="Teléfono" formControlName="phone">
+        <ion-input clearInput type="tel" placeholder="Teléfono" formControlName="phone" required>
 
         </ion-input>
       </ion-item>
@@ -54,12 +62,29 @@
 
     <ion-item class="item" lines="none">
       <ion-label>
-        Localidad
+        Localidad *
       </ion-label>
 
-      <ion-input clearInput type="text" placeholder="Localidad" formControlName="location"></ion-input>
+      <ion-input clearInput type="text" placeholder="Localidad" formControlName="location" required></ion-input>
 
     </ion-item>
+
+
+    <div class="predictions" *ngIf="!clickedInPrediction && predictions?.length > 0">
+      <h4 class="ion-text-left results" style="margin-top: 30px; font-weight: bold;">RESULTADOS</h4>
+      <ion-item class="ion-text-wrap itempredictions" lines="none" *ngFor="let prediction of predictions"
+        (click)="choosePrediction(prediction)">
+        <ion-label>{{prediction?.description}}</ion-label>
+      </ion-item>
+      <div class="map-wrapper" style="display: none;">
+        <div id="modal_map_canvas" style="height: 150px; width: 150px; visibility:hidden;"></div>
+      </div>
+    </div>
+
+
+
+
+
     <ion-item class="item" lines="none">
       <ion-label>
         Web
@@ -89,7 +114,7 @@
       </ion-item>
 
       
-      <ion-button type="submit" class="submit" expand="block">Registrarme</ion-button>
+      <ion-button [disabled]="!form.valid" type="submit" class="submit" expand="block">Registrarme</ion-button>
       
     </form>
 

@@ -1,0 +1,49 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+    --background: white;
+
+    ion-card{
+        width: 90vw;
+        margin: auto;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+        margin-bottom: 2vh;
+        border-radius: 20px;
+        background: white;
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+    }
+
+    ion-icon{
+        position: absolute;
+        font-size: 20px;
+        top: 15px;
+        right: 15px;
+    }
+
+    p{
+        color: black;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .title{
+        font-weight: bolder;
+        color: #5a9473;
+    }
+}

@@ -12,27 +12,41 @@ ion-content{
   }
 
   .logo1{
-    margin-top: 57vh;
+    margin-top: 52vh;
     width: 80vw;
   }
   .login{
       --background: rgba(255, 255, 255, 0.363);
       --color: rgb(255, 255, 255);
-      --border-radius:25px;
+      --border-radius:15px;
       height: 5vh;
       width: 80vw;
       text-transform: none;
       font-size: 12px;
       font-weight: normal;
-      margin-top: 2vh;
+      
       margin-bottom: 2vh;
       --box-shadow: none;
       
   }
+  .login1{
+    --background: rgba(255, 255, 255, 0.363);
+    --color: rgb(255, 255, 255);
+    --border-radius:15px;
+    height: 5vh;
+    width: 80vw;
+    text-transform: none;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    --box-shadow: none;
+    
+}
   .register{
       --color: white;
       --background: rgba(69, 250, 190, 0.418);
-      --border-radius:25px;
+      --border-radius:15px;
       height: 5vh;
       width: 80vw;
       text-transform: none;
@@ -45,7 +59,7 @@ ion-content{
   .register1{
     --color: white;
     --background: rgba(5, 63, 44, 0.418);
-    --border-radius:25px;
+    --border-radius:15px;
     height: 5vh;
     width: 80vw;
     text-transform: none;

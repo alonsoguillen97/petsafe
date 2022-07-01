@@ -1,0 +1,158 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="cabecera">
+
+  <p class="title">Solicitud de adopción</p>
+
+  <ion-slides pager="true">
+    <ion-slide class="slide1">
+    <img class="petimage" src="{{this.pet?.image}}">
+    </ion-slide>
+    <ion-slide class="slide1">
+      <img class="petimage" src="{{this.pet?.image}}">
+      </ion-slide>
+    </ion-slides>
+
+    <br>
+
+    <ion-card class="principal">
+      <ion-item lines="none">
+        <p class="label" slot="start">Nombre:</p>
+        <p class="data" slot="end">{{this.pet?.name}}</p>
+      </ion-item>
+      
+  
+      <ion-item lines="none">
+        <p class="label" slot="start">Refugio:</p>
+        <p class="data" slot="end">{{this.pet?.user?.name}}</p>
+      </ion-item>
+
+      <ion-item lines="none">
+        <p class="label" slot="start">Localización:</p>
+        <p class="data" slot="end">{{this.pet?.user?.location}}</p>
+      </ion-item>
+  
+    </ion-card>
+
+  </div>
+
+    <p class="title1">Información de la solicitud:</p>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+      <p class="title2">Datos de la vivienda</p>
+
+      <p class="question">Tipo de vivienda (casa, piso, otros)</p>
+      <ion-input class="answer" formControlName="q1"></ion-input>
+
+
+      <p class="question">¿Su vivienda es propia o alquilada?, en caso de alquilada, ¿Tienes permiso del dueño para tener una mascota?</p>
+      <ion-input class="answer" formControlName="q2"></ion-input>
+
+      <p class="question">¿Dispone de jardin/terraza/patio?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q3" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Jardin">Jardin</ion-select-option>
+          <ion-select-option value="Terraza">Terraza</ion-select-option>
+          <ion-select-option value="Patio">Patio</ion-select-option>
+          <ion-select-option value="Ninguno">Ninguno</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Dispone de un espacio habilitado para la mascota?</p>
+
+        <ion-button class="selector"  expand="block" >
+          <ion-select formControlName="q4" okText="Aceptar" cancelText="Cancelar">
+            <ion-select-option value="Si">Si</ion-select-option>
+            <ion-select-option value="No">No</ion-select-option>
+          </ion-select>
+          </ion-button> 
+      
+      
+
+
+      <p class="title2">Datos familiares</p>
+
+      <p class="question">¿Cuántas personas conviven en la vivienda?</p>
+      <ion-input class="answer" formControlName="q5"></ion-input>
+
+      <p class="question">¿Alguno es alérgico a la mascota?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q6" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Viven niños en la vivienda?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q7" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Estará mucho tiempo el animal solo en casa?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q8" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Mucho</ion-select-option>
+          <ion-select-option value="A veces">A veces</ion-select-option>
+          <ion-select-option value="Poco">Poco</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="title2">Sobre mascotas</p>
+
+      <p class="question">¿Tiene actualmente mascotas en casa?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q9" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Ha tenido mascotas anteriormente?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q10" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Conoce los cuidados que requiere una mascota como la que deseas adoptar?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q11" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="question">¿Cuenta con la capacidad económica para hacerse cargo de la mascota?</p>
+      <ion-button class="selector"  expand="block" >
+        <ion-select formControlName="q12" okText="Aceptar" cancelText="Cancelar">
+          <ion-select-option value="Si">Si</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+        </ion-select>
+        </ion-button> 
+
+      <p class="title2">Preguntas generales</p>
+
+      <p class="question">¿Porqué ha decidido adoptar una mascota?</p>
+      <ion-input class="answer" formControlName="q13"></ion-input>
+
+      <p class="question">¿Que motivos harían que quisiese devolver a la mascota a la asociación?</p>
+      <ion-input class="answer" formControlName="q14"></ion-input>
+
+      <br><br>
+
+    <ion-textarea rows="10" placeholder="Escriba aqui más información que crea que es relevante en caso de realizar la adopción." formControlName="details"></ion-textarea>
+
+    <ion-button type="submit" class="submit" expand="block">Enviar solicitud</ion-button>
+    </form>
+
+</ion-content>

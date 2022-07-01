@@ -1,0 +1,26 @@
+.contenedor{
+    
+    height: 100vh;
+    
+    background: white;
+
+    .center{
+        
+        display: flex;
+        align-items: center;
+    }
+
+    ion-icon{
+        
+        text-align: center;
+        font-size: 80px;
+        color: #5a9473;
+        margin: 0 auto;
+        margin-top: 50vw;
+        margin-bottom: 10vw;
+    }
+
+    p{
+        color: black;
+    }
+}

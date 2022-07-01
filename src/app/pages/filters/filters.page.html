@@ -1,0 +1,79 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon class="close" src="assets/icon/close.svg" (click)="closeModal()"></ion-icon>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <br><br>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+  <!--
+
+  <ion-item class="categories" lines="none">
+
+
+    <ion-col >
+      <ion-icon id="1" (click)="filterEventsByCategory('1')" [class.selected]="selectedcategory == 1" src="assets/icon/perro-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 1">Perros</p>
+    </ion-col>
+    
+    <ion-col >
+      <ion-icon id="2" (click)="filterEventsByCategory('2')" [class.selected]="selectedcategory == 2" src="assets/icon/gato-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 2">Gatos</p>
+    </ion-col>
+    
+    
+    <ion-col>
+      <ion-icon src="assets/icon/mas.svg"></ion-icon>
+      <p class="category-name">Otros</p>
+    </ion-col>
+    
+    
+  </ion-item>
+
+  -->
+
+  <ion-label>Tamaño de la mascota</ion-label>
+  <ion-button class="selector"  expand="block" >
+    <ion-select formControlName="size" okText="Aceptar" cancelText="Cancelar">
+      <ion-select-option value="pequeño">Pequeño</ion-select-option>
+      <ion-select-option value="mediano">Mediano</ion-select-option>
+      <ion-select-option value="grande">Grande</ion-select-option>
+    </ion-select>
+    </ion-button> 
+
+    <br>
+
+    <ion-label>Actividad de la mascota</ion-label>
+    <ion-button class="selector"  expand="block" >
+      <ion-select formControlName="activity" okText="Aceptar" cancelText="Cancelar">
+        <ion-select-option value="poca">Poca actividad</ion-select-option>
+        <ion-select-option value="normal">Normal</ion-select-option>
+        <ion-select-option value="mucha">Muy activo</ion-select-option>
+      </ion-select>
+      </ion-button> 
+      <br>
+
+  <ion-item class="check" lines="none">
+    <ion-checkbox (ionChange)="updateCares()"></ion-checkbox>
+    <p>Mascotas con cuidados especiales</p>
+
+  </ion-item>
+
+  <ion-item class="check" lines="none">
+    <ion-checkbox (ionChange)="updateBreed()"></ion-checkbox>
+    <p>Macotas que necesitan licencia ppp</p>
+
+  </ion-item>
+
+
+  <ion-button type="submit" class="submit" expand="block">Buscar</ion-button>
+
+  </form>
+  
+  
+
+</ion-content>

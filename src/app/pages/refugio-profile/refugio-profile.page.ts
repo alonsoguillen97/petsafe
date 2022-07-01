@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RefugioProfilePage implements OnInit {
   public user: User;
+  
 
   constructor(private api: AuthService) { }
 
@@ -20,6 +21,7 @@ export class RefugioProfilePage implements OnInit {
     this.api.getEntity('user').subscribe((user: User) => {
       this.user = user;
       console.log(this.user)
+      
     });
 
     

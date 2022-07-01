@@ -2,6 +2,7 @@ import { Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject } from 'rxjs';
+import { UtilitiesService } from './utilities.service';
 
 const TOKEN_KEY = 'auth-token';
 
@@ -12,7 +13,7 @@ export class AuthenticationService {
 
   public authenticationState = new BehaviorSubject('');
 
-  constructor(private storage: Storage, private plt: Platform) {
+  constructor(private storage: Storage, private plt: Platform, private utilitiesService: UtilitiesService) {
     this.checkToken();
   }
 
@@ -34,7 +35,9 @@ export class AuthenticationService {
   public logout(): Promise<void> {
     return this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next('logout');
+      this.utilitiesService.showToast('Sesión cerrada correctamente');
     });
+    
   }
 
   public isAuthenticated(): string {

@@ -150,6 +150,23 @@ ion-content{
         margin-left: 5vw;
     }
 
+    .check{
+        --background: white;
+        margin:0 auto;
+        width: 80vw;
+        margin-top: 2vh;
+
+        ion-checkbox{
+            width: 20px;
+            height: 20px;
+            --border-radius: 100px;
+        }
+        p{
+            margin-left: 5vw;
+            color: black;
+        }
+    }
+
     
 
     .terms{

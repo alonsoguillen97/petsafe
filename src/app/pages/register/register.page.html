@@ -6,97 +6,86 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
 
-      <div class="selectimage">
-        <ion-icon src="assets/icon/camera.svg"></ion-icon>
-      </div>
+    <div *ngIf="!this.uploadphoto" class="selectimage" (click)="adjuntarImagen()">
+      <ion-icon src="assets/icon/camera.svg"></ion-icon>
+    </div>
 
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Nombre
-        </ion-label>
-
-        <ion-input clearInput type="text" placeholder="Nombre" formControlName="name"></ion-input>
-
-      </ion-item>
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Apellidos
-        </ion-label>
-
-        <ion-input clearInput type="text" placeholder="Apellidos" ></ion-input>
-
-      </ion-item>
-        
-      <ion-item class="date-selector" lines="none">
-        <ion-label>Fecha de nacimiento</ion-label>
-        <ion-datetime #myPicker display-format="DD/MM/YYYY" cancelText="Cancelar" doneText="OK" placeholder="Fecha"
-          (ionChange)="updateMyDate(myPicker.value)"></ion-datetime>
-      </ion-item>
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Email
-        </ion-label>
-
-        <ion-input clearInput type="email" placeholder="Email" formControlName="email"></ion-input>
-
-      </ion-item>
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Contraseña
-        </ion-label>
-        <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
-
-      </ion-item>
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Confirmar contraseña
-        </ion-label>
-
-        <ion-input clearInput type="password" placeholder="Contraseña"></ion-input>
-
-      </ion-item>
-      <ion-item class="item" lines="none">
-        <ion-label>
-          Telefono
-        </ion-label>
-
-        <ion-input clearInput type="tel" placeholder="Teléfono" >
-
-        </ion-input>
-      </ion-item>
-    
+    <img (click)="adjuntarImagen()" class="profileimage" *ngIf="this.uploadphoto" src="{{this.base64img}}">
 
     <ion-item class="item" lines="none">
       <ion-label>
-        Dirección
+        Nombre
       </ion-label>
 
-      <ion-input clearInput type="text" placeholder="Dirección" ></ion-input>
+      <ion-input clearInput type="text" placeholder="Nombre" formControlName="name"></ion-input>
 
+    </ion-item>
+    
+      
+    
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Email
+      </ion-label>
+
+      <ion-input clearInput type="email" placeholder="Email" formControlName="email"></ion-input>
+
+    </ion-item>
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Contraseña
+      </ion-label>
+      <ion-input clearInput type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+
+    </ion-item>
+    
+    <ion-item class="item" lines="none">
+      <ion-label>
+        Telefono
+      </ion-label>
+
+      <ion-input clearInput type="tel" placeholder="Teléfono" formControlName="phone">
+
+      </ion-input>
+    </ion-item>
+  
+
+  <ion-item class="item" lines="none">
+    <ion-label>
+      Localidad
+    </ion-label>
+
+    <ion-input clearInput type="text" placeholder="Localidad" formControlName="location"></ion-input>
+
+  </ion-item>
+
+
+  <div class="predictions" *ngIf="!clickedInPrediction && predictions?.length > 0">
+    <h4 class="ion-text-left results" style="margin-top: 30px; font-weight: bold;">RESULTADOS</h4>
+    <ion-item class="ion-text-wrap itempredictions" lines="none" *ngFor="let prediction of predictions"
+      (click)="choosePrediction(prediction)">
+      <ion-label>{{prediction?.description}}</ion-label>
+    </ion-item>
+    <div class="map-wrapper" style="display: none;">
+      <div id="modal_map_canvas" style="height: 150px; width: 150px; visibility:hidden;"></div>
+    </div>
+  </div>
+
+
+
+
+ 
+
+    
+    <ion-item lines="none" class="terms">
+      <ion-checkbox></ion-checkbox><p>Acepto los términos de privacidad</p>
     </ion-item>
 
     
-
-      <div  class="gender">
-
-        <label><input type="checkbox" ><span> <ion-icon src="assets/icon/check.svg"></ion-icon>Hombre </span></label>
-        <label><input type="checkbox" ><span><ion-icon src="assets/icon/check.svg"></ion-icon>Mujer</span></label>
-
-      </div>
-
-
-   
-
-      
-      <ion-item lines="none" class="terms">
-        <ion-checkbox></ion-checkbox><p>Acepto los términos de privacidad</p>
-      </ion-item>
-
-      
-      <ion-button type="submit" class="submit" expand="block">Registrarme</ion-button>
-      
-    </form>
+    <ion-button type="submit" class="submit" expand="block">Registrarme</ion-button>
+    
+  </form>
 
 </ion-content>

@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RefugiosPageRoutingModule } from './refugios-routing.module';
 
 import { RefugiosPage } from './refugios.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RefugiosPageRoutingModule
+    RefugiosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [RefugiosPage]
 })

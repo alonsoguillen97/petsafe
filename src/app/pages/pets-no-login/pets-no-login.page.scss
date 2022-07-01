@@ -1,0 +1,187 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+
+    .advice{
+        p{
+            font-size: 5vw;
+            
+            margin-right: 5vw;
+        }
+
+        ion-icon{
+            font-size: 8vw;
+            color: #5a9473;
+        }
+        
+    }
+
+    .categories{
+        margin-top: 5vh;
+      --background: transparent;
+
+      
+        .buttons{
+            margin-left: 5vw;
+            
+        }
+        
+        ion-col{
+            text-align: center;
+            margin-right: 0;
+
+            .delete{
+                --background: #d6d6d6;
+            }
+
+            .add{
+                --background: white;
+                color: #d6d6d6;
+                border: 1px;
+            }
+            .lost{
+                
+                color: white;
+
+            }
+           
+            ion-button{
+                width: 22vw;
+                --box-shadow: none;
+                --border-radius: 10px;
+                height: 5vh;
+                text-transform: none;
+            }
+            
+            ion-icon{
+                color: #9bd1b7;
+                font-size: 14vw;
+                opacity: 0.5;
+            }
+            
+            .category-name{
+                margin-top:5px;
+                padding:0;
+                font-size: 12px;
+                
+            }
+    
+            p{
+                opacity: 0.5; 
+                color: #9bd1b7;
+            }
+
+            .selected{
+                color: #053f2c;
+            }
+            
+        }
+    }
+
+
+    .contenedor{
+        margin-top: 3vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        padding-left: 0;
+        margin-left: 0;
+        height: 35vh;
+        background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        border-radius: 15px;
+
+        .category-icon{
+            position: absolute;
+            top: 2vw;
+            left: 2vw;
+            width: 25vw;
+            height: 25vw;
+            color: #9bd1b7 !important;
+        }
+
+        .enter-icon{
+            position: absolute;
+            bottom: 10vw;
+            right: 8vw;
+            width: 10vw;
+            height: 10vw;
+            color: rgb(37, 131, 100) !important;
+        }
+
+        .name{
+            --background: transparent;
+            position: absolute;
+            bottom: 10vw;
+            left: 8vw;
+            color: black;
+            font-size: 16px;
+            p{
+                margin-right: 2vw;
+                color: rgb(37, 131, 100);
+            }
+        }
+
+        .age{
+            --background: transparent;
+            position: absolute;
+            bottom: 10vw;
+            right: 20vw;
+            color: black;
+            font-size: 16px;
+            p{
+                margin-right: 2vw;
+                color: rgb(37, 131, 100);
+            }
+        }
+        .refugio{
+            --background: transparent;
+            position: absolute;
+            bottom: 2vw;
+            left: 8vw;
+            color: black;
+            font-size: 16px;
+            ion-icon{
+                font-size: 25px;
+                color: rgb(37, 131, 100);
+                margin-right: 2vw;
+                margin-bottom: 2px;
+            }
+            
+        }
+        
+        img{
+            position: absolute;
+            top: 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            width: 100vw;
+            height: 30vh;
+        }
+        
+        ion-card{
+            margin: 0;
+            position: absolute;
+            width: 90vw;
+            height: 10vh;
+            bottom: 1vh;
+            background: white;
+            border-radius: 15px;
+        }
+    }
+}

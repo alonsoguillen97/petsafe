@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenedor" *ngFor="let pet of pets" >
+    <img src="{{pet?.image}}">
+    <ion-card>
+      
+    </ion-card>
+    <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
+    <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
+    <ion-item lines="none" class="name">
+      <p>Nombre:</p>
+      {{pet?.name}}
+    </ion-item>
+    <ion-item lines="none" class="age">
+      <p>Edad:</p>
+      {{pet?.birthdate}}
+    </ion-item>
+    <ion-item lines="none" class="refugio">
+      
+      <ion-icon src="assets/icon/home.svg"></ion-icon>
+      <p>{{pet?.user?.name}}</p> 
+    </ion-item>
+  </div>
+</ion-content>

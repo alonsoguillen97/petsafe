@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <p class="title1">Mascotas abandonadas</p>
+
+<br>
+  <ion-item lines="none">
+  <ion-button (click)="presentAlert()" class="info">
+    <ion-icon  src="assets/icon/help.svg"></ion-icon>
+  </ion-button>
+
+  <ion-button class="create" routerLink="/create-pet-lost">Denunciar abandono</ion-button>
+  </ion-item>
+
+
+  <div class="contenedor" *ngFor="let pet of pets">
+    <img src="{{pet?.image}}">
+    <ion-card>
+      <p class="description">{{pet?.description}}</p>
+    </ion-card>
+
+    <p class="location">Ubicación: {{pet?.location}}</p>
+    <p class="phone">Teléfono: {{pet?.user?.phone}}</p>
+    <p class="email">Email: {{pet?.user?.email}}</p>
+
+  </div>
+
+</ion-content>

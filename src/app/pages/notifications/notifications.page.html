@@ -1,0 +1,15 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br><br>
+<ion-card *ngFor="let notification of notifications">
+  <ion-icon src="assets/icon/close.svg" (click)="deleteNotification(notification)"></ion-icon>
+  <p class="title">{{notification.title}}</p>
+  <p class="subtitle">{{notification.subtitle}}</p>
+</ion-card>
+</ion-content>

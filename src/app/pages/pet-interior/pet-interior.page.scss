@@ -145,8 +145,13 @@ ion-content{
         }
 
         .fav{
-            --background: rgb(240, 118, 118);
+            --background: #f07676;
             
+            
+        }
+
+        .nofav{
+            --background: #acacac;
         }
     }
 

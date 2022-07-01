@@ -32,6 +32,12 @@ ion-content{
     text-align: center;
     --padding-top:5vh;
 
+    .profileimage{
+        width: 80vw;
+        border-radius: 15px;
+        border: 2px solid #9bd1b7;
+    }
+
     .selectimage{
         width: 30vw;
         height: 30vw;
@@ -179,6 +185,19 @@ ion-content{
         height: 50px;
         color: white;
         --background: var(--ion-color-primary);
+    }
+
+    .results{
+        color: black;
+        margin-left: 5vw;
+    }
+
+    .predictions{
+        margin-bottom: 6vh;
+    }
+
+    .itempredictions{
+        --background: white;
     }
 
 }

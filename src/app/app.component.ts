@@ -51,18 +51,18 @@ export class AppComponent implements OnInit {
         this.apiService.getEntity('user').subscribe((user: User) => {
 
 
-          if (user.id_rol == 2) {
+          if (user.role_id == 3) {
             this.apiService.setTokenToHeaders(token);
             this.navCtrl.navigateRoot('/tab1/pets').then(() => {
               this.isLoading = false;
             });
           } 
-            else { 
+          if (user.role_id == 2) {
             this.apiService.setTokenToHeaders(token);
-            this.navCtrl.navigateRoot('/tab/pets').then(() => {
+            this.navCtrl.navigateRoot('/tab2/pets').then(() => {
               this.isLoading = false;
             });
-          }
+          } 
         }, error => {
           this.isLoading = false;
         });

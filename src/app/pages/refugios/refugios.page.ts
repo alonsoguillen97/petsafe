@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RefugiosPage implements OnInit {
 
   users: User[]=[];
+  public isLoading: boolean = true;
 
   constructor(private apiService: AuthService,
     private navCtrl: NavController) { }
@@ -21,6 +22,7 @@ export class RefugiosPage implements OnInit {
       this.users = users;
       console.log(this.users);
     });
+    this.isLoading = false;
   }
 
 

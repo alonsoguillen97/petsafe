@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<br><br>
+
+<p class="empty" *ngIf="requests?.length === 0">No hay ninguna solicitud en este momento</p>
+  <ion-card class="principal" *ngFor="let request of requests">
+
+    <ion-icon class="delete" src="assets/icon/close.svg" (click)="deleteRequest(request)"></ion-icon>
+    <ion-item class="pet" lines="none">
+      
+      <p class="label">Mascota: </p>
+      <p class="data">{{this.request?.pet?.name}}</p>
+      
+    </ion-item>
+    
+    <ion-item class="user" lines="none">
+      <p class="label">Solicitante:</p>
+      <p class="data">{{this.request?.user?.name}}</p>
+    </ion-item>
+
+    <ion-item class="status" lines="none">
+      <ion-icon *ngIf="this.request?.status == 'pendiente'" class="pendiente" src="assets/icon/point.svg"></ion-icon>
+      <ion-icon *ngIf="this.request?.status == 'aceptada'" class="aceptada" src="assets/icon/point.svg"></ion-icon>
+      <ion-icon *ngIf="this.request?.status == 'rechazada'" class="rechazada" src="assets/icon/point.svg"></ion-icon>
+      <p *ngIf="this.request?.status == 'pendiente'" class="pendiente">{{this.request?.status}}</p>
+      <p *ngIf="this.request?.status == 'aceptada'" class="aceptada">{{this.request?.status}}</p>
+      <p *ngIf="this.request?.status == 'rechazada'" class="rechazada">{{this.request?.status}}</p>
+    </ion-item>
+    
+    <img class="image" src="{{this.request?.pet?.image}}" alt="">
+
+    <ion-item class="buttons" lines="none">
+    <ion-col slot="end">
+      <ion-button (click)="goToInteriorPet(request.pet)">Ver mascota</ion-button>
+      <ion-button (click)="goToInteriorRequest(request)">Ver solicitud</ion-button>
+    </ion-col>
+    </ion-item>
+    
+
+    
+
+  </ion-card>
+
+</ion-content>

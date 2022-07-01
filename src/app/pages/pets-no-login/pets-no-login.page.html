@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="advice" lines="none">
+  <ion-icon slot="start" src="assets/icon/alert.svg"></ion-icon>
+  <p>Para acceder a la funcionalidad completa de la aplicación debes estar registrado.</p>
+  </ion-item>
+
+  <ion-item class="categories" lines="none">
+
+
+    <ion-col >
+      <ion-icon id="1" (click)="filterEventsByCategory('1')" [class.selected]="selectedcategory == 1" src="assets/icon/perro-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 1">Perros</p>
+    </ion-col>
+    
+    <ion-col >
+      <ion-icon id="2" (click)="filterEventsByCategory('2')" [class.selected]="selectedcategory == 2" src="assets/icon/gato-inv.svg"></ion-icon>
+      <p class="category-name" [class.selected]="selectedcategory == 2">Gatos</p>
+    </ion-col>
+    
+    
+    <ion-col>
+      <ion-icon src="assets/icon/mas.svg"></ion-icon>
+      <p class="category-name">Otros</p>
+    </ion-col>
+    <ion-col class="buttons">
+      <ion-button class="delete" (click)="removeFilters()">Eliminar <br> filtros</ion-button>
+      
+    </ion-col>
+    
+  </ion-item>
+
+  <div  *ngIf="pets?.length > 0 && filteredPets?.length === 0 && filteredFromFilterPage == false">
+    <div class="contenedor" *ngFor="let pet of pets" >
+      <img src="{{pet?.image}}">
+      <ion-card>
+        
+      </ion-card>
+      <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
+      <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
+      <ion-item lines="none" class="name">
+        <p>Nombre:</p>
+        {{pet?.name}}
+      </ion-item>
+      <ion-item lines="none" class="age">
+        <p>F.nac:</p>
+        {{pet?.birthdate}}
+      </ion-item>
+      <ion-item lines="none" class="refugio">
+        
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+        <p>{{pet?.user?.name}}</p> 
+      </ion-item>
+    </div>
+    </div>
+  
+  
+    <div  *ngIf="filteredPets?.length > 0">
+    <div class="contenedor" *ngFor="let pet of filteredPets">
+      <img src="{{pet?.image}}">
+      <ion-card>
+        
+      </ion-card>
+      <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
+      <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
+      <ion-item lines="none" class="name">
+        <p>Nombre:</p>
+        {{pet?.name}}
+      </ion-item>
+      <ion-item lines="none" class="age">
+        <p>Edad:</p>
+        {{pet?.birthdate}}
+      </ion-item>
+      <ion-item lines="none" class="refugio">
+        
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+        <p>{{pet?.user?.name}}</p> 
+      </ion-item>
+    </div>
+    </div>
+  
+    <p class="empty" *ngIf="filteredPets?.length === 0 && filteredFromFilterPage == true">No hay mascotas con los filtros seleccionados</p>
+</ion-content>

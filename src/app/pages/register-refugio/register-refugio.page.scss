@@ -183,4 +183,17 @@ ion-content{
         --background: var(--ion-color-primary);
     }
 
+    .results{
+        color: black;
+        margin-left: 5vw;
+    }
+
+    .predictions{
+        margin-bottom: 6vh;
+    }
+
+    .itempredictions{
+        --background: white;
+    }
+
 }

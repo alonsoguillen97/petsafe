@@ -1,9 +1,63 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>user-profile</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="contenedor">
+  <img src="{{user?.image}}">
+  </div>
+
+
+  <br><br>
+
+  <ion-card>
+
+  <ion-item class="info" lines="none">
+    <ion-label>
+      Nombre
+    </ion-label>
+
+    <p slot="end">{{user?.name}}</p>
+
+  </ion-item>
+
+  <ion-item class="info" lines="none">
+    <ion-label>
+      Email
+    </ion-label>
+
+    <p slot="end">{{user?.email}}</p>
+
+  </ion-item>
+
+  <ion-item class="info" lines="none">
+    <ion-label>
+      Teléfono
+    </ion-label>
+
+    <p slot="end">{{user?.phone}}</p>
+
+  </ion-item>
+
+  <ion-item class="info" lines="none">
+    <ion-label>
+      Localidad
+    </ion-label>
+
+    <p slot="end">{{user?.location}}</p>
+
+  </ion-item>
+
+</ion-card>
+
+
+  
+
+  <ion-button class="submit" expand="block" routerLink="/edit-profile-user">Editar perfil</ion-button>
+  <ion-button class="fav" expand="block" routerLink="/liked-pets">Mis mascotas favoritas</ion-button>
+  <ion-button class="requests" expand="block" routerLink="/own-requests-user">Mis solicitudes enviadas</ion-button>
 
 </ion-content>

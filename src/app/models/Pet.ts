@@ -16,6 +16,7 @@ export interface Pet {
     weight?: number,
     user?: User,
     category?: PetCategory
-    breed?: PetBreed
+    breed?: PetBreed,
+    liked?: boolean;
     
 }

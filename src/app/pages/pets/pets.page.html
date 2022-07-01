@@ -2,10 +2,12 @@
   <ion-toolbar no-padding translucent>
     
     <img slot="start" class="logo" src="assets/imgs/logoletras1.png" alt="">
-    <ion-icon slot="end" class="icon" src="assets/icon/notifications.svg"></ion-icon>
-    <ion-badge slot="end" color="primary">11</ion-badge>
+    <ion-icon slot="end" routerLink="/notifications" class="icon" src="assets/icon/notifications.svg"></ion-icon>
+    <ion-badge *ngIf="notifications?.length > 0" slot="end" color="primary">{{notifications?.length}}</ion-badge>
   </ion-toolbar>
 </ion-header>
+
+<app-loading [text]="'Cargando...'" *ngIf="isLoading"></app-loading>
 
 <ion-content>
 
@@ -29,17 +31,19 @@
     </ion-col>
     <ion-col class="buttons">
       <ion-button class="delete" (click)="removeFilters()">Eliminar <br> filtros</ion-button>
-      <ion-button fill="outline" color="primary" class="add">Mas <br> filtros</ion-button>
+      <ion-button fill="outline" color="primary" class="add" (click)="goToFiltersPage()">Mas <br> filtros</ion-button>
+      <ion-button class="lost" routerLink="/pets-lost">Mascotas <br> abandonadas</ion-button>
     </ion-col>
     
   </ion-item>
+  <!--
   <ion-button class="selector"  expand="block" >
   <ion-select value="distancia" okText="Aceptar" cancelText="Cancelar">
     <ion-select-option value="edad-asc">Edad ascendente</ion-select-option>
     <ion-select-option value="edad-desc">Edad descendente</ion-select-option>
     <ion-select-option value="distancia">Distancia</ion-select-option>
   </ion-select>
-  </ion-button> 
+  </ion-button> -->
 
 
   <div  *ngIf="pets?.length > 0 && filteredPets?.length === 0 && filteredFromFilterPage == false">
@@ -55,7 +59,7 @@
       {{pet?.name}}
     </ion-item>
     <ion-item lines="none" class="age">
-      <p>Edad:</p>
+      <p>F.nac:</p>
       {{pet?.birthdate}}
     </ion-item>
     <ion-item lines="none" class="refugio">
@@ -91,6 +95,6 @@
   </div>
   </div>
 
-  
+  <p class="empty" *ngIf="filteredPets?.length === 0 && filteredFromFilterPage == true">No hay mascotas con los filtros seleccionados</p>
 
 </ion-content>

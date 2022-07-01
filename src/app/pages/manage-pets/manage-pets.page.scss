@@ -26,6 +26,16 @@ ion-header{
 ion-content{
     --background: white;
 
+
+    .empty{
+        text-align: center;
+        color: black;
+        margin: auto;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        font-size: 20px;
+    }
+
     ion-card{
         margin: auto;
         margin-bottom: 4vh;
@@ -40,6 +50,8 @@ ion-content{
             height: 30vw;
             width: 40vw;
             border-radius: 10px;
+            -webkit-box-shadow: 21px 0px 0px 0px #5A9473; 
+box-shadow: 21px 0px 0px 0px #5A9473;
         }
 
         
@@ -48,6 +60,11 @@ ion-content{
             color: black;
             font-size: 16px;
             margin-bottom: 0;
+            margin-left: 5vw;
+        }
+
+        .buttons{
+            margin-left: 2vw;
         }
 
         ion-item{
@@ -62,7 +79,7 @@ ion-content{
                 
                 
                 color: white;
-                height: 4vh;
+                height: 8vw;
                 
             }
             .edit{

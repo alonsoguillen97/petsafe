@@ -25,21 +25,21 @@
         Nombre *
       </ion-label>
 
-      <ion-input clearInput type="text" placeholder="Nombre de la mascota" formControlName="name"></ion-input>
+      <ion-input clearInput type="text" placeholder="{{this.pet?.name}}" formControlName="name"></ion-input>
 
     </ion-item>
 
     <ion-button class="select" >
       <ion-select placeholder="Género *" formControlName="gender">
-        <ion-select-option value="male">Macho</ion-select-option>
-        <ion-select-option value="female">Hembra</ion-select-option>
+        <ion-select-option value="macho">Macho</ion-select-option>
+        <ion-select-option value="hembra">Hembra</ion-select-option>
       </ion-select>
     </ion-button>
 
     <ion-item class="date-selector" lines="none">
       <ion-label> Fec. Nac *</ion-label>
       <ion-datetime #myPicker display-format="DD/MM/YYYY" cancelText="Cancelar" doneText="OK" placeholder="Fecha" formControlName="birthdate"
-        ></ion-datetime>
+        >{{this.pet?.birthdate}}</ion-datetime>
     </ion-item>
 
     <ion-button class="select">
@@ -56,9 +56,17 @@
 
     <ion-button class="select" >
       <ion-select placeholder="Tamaño *" formControlName="size">
-        <ion-select-option value="small">Pequeño</ion-select-option>
-        <ion-select-option value="medium">Mediano</ion-select-option>
-        <ion-select-option value="big">Grande</ion-select-option>
+        <ion-select-option value="pequeño">Pequeño</ion-select-option>
+        <ion-select-option value="mediano">Mediano</ion-select-option>
+        <ion-select-option value="grande">Grande</ion-select-option>
+      </ion-select>
+    </ion-button>
+
+    <ion-button class="select" >
+      <ion-select placeholder="Actividad *" formControlName="activity">
+        <ion-select-option value="poca">Poca actividad</ion-select-option>
+        <ion-select-option value="normal">Normal</ion-select-option>
+        <ion-select-option value="mucha">Muy activo</ion-select-option>
       </ion-select>
     </ion-button>
     
@@ -67,8 +75,20 @@
       <ion-label>
         Peso *
       </ion-label>
-      <ion-input clearInput type="text" placeholder="Peso" formControlName="weight"></ion-input>
+      <ion-input clearInput type="text" placeholder="{{this.pet?.weight}}" formControlName="weight"></ion-input>
 
+    </ion-item>
+
+    <ion-item class="check" lines="none">
+      <ion-checkbox (ionChange)="updateCares()"></ion-checkbox>
+      <p>Mascotas con cuidados especiales</p>
+  
+    </ion-item>
+  
+    <ion-item class="check" lines="none">
+      <ion-checkbox (ionChange)="updateBreed()"></ion-checkbox>
+      <p>Mascotas con licencia ppp</p>
+  
     </ion-item>
     
    

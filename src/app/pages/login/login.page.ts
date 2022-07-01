@@ -92,12 +92,12 @@ export class LoginPage implements OnInit {
 
       //Vamos a inicio
       this.auth.login(user.api_token);
-
-      this.navCtrl.navigateRoot('/tab/pets');
+      this.utilitiesService.showToast("Has iniciado sesión correctamente");
+      
 
     }, (error) => {
       this.utilitiesService.dismissLoading();
-      this.utilitiesService.showToast((error));
+      this.utilitiesService.showToast("Los datos proporcionados son incorrectos");
     });
   }
 

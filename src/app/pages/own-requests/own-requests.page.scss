@@ -1,0 +1,150 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+    --background: white;
+
+
+    .empty{
+        text-align: center;
+        color: black;
+        margin: auto;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        font-size: 20px;
+    }
+
+    .principal{
+        width: 90vw;
+        height: 80vw;
+        margin: auto;
+        padding-top: 5vh;
+        padding-bottom: 3vh;
+        margin-bottom: 4vh;
+        border-radius: 20px;
+        background: #f5f5f5;
+        -webkit-box-shadow: 19px 19px 0px -4px #5A9473; 
+box-shadow: 19px 19px 0px -4px #5A9473; 
+        
+
+        .delete{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+        }
+
+        .pet{
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+        }
+
+        .user{
+            position: absolute;
+            bottom: 80px;
+            left: 10px;
+        }
+
+        .status{
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+
+            ion-icon{
+                width: 20px;
+                margin-right: 5px;
+            }
+    
+            .pendiente{
+                color: orange;
+            }
+
+            .aceptada{
+                color: green;
+            }
+
+            .rechazada{
+                color: red;
+            }
+        }
+
+        .buttons{
+            position: absolute;
+            bottom: 10px;
+            left: 40px;
+        }
+
+        .image{
+            position: absolute;
+            width: 60vw;
+            border-radius: 10px;
+            top: 5px;
+            left: 5px;
+            -webkit-box-shadow: 21px 0px 0px 0px #5A9473; 
+box-shadow: 21px 0px 0px 0px #5A9473;
+            }
+
+        .category-icon{
+            position: absolute;
+            right: 4vw;
+            top: 4vw;
+            font-size: 80px;
+            color: #5a9473;
+        }
+
+        .name{
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 2vh;
+            margin-left: 5vw;
+            background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+            color: transparent;
+            background-clip: text;
+        }
+
+        ion-item{
+            --background: transparent !important;
+            
+
+            p{
+                font-size: 16px;
+            }
+
+            
+
+            ion-button{
+                margin-right: 4vw;
+                --box-shadow: none;
+                text-transform: none;
+                color: white;
+                --border-radius: 10px;
+            }
+
+            .label{
+                color: #808080;
+                margin-right: 5px;
+                
+            }
+
+            .data{
+                color: #5a9473;
+                
+                
+            }
+        }
+    }
+}

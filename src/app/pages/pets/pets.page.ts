@@ -1,32 +1,39 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { Notification } from 'src/app/models/Notification';
 import { Pet } from 'src/app/models/Pet';
 import { AuthService } from 'src/app/services/auth.service';
+import { FiltersPage } from '../filters/filters.page';
 
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.page.html',
   styleUrls: ['./pets.page.scss'],
 })
-export class PetsPage implements OnInit {
+export class PetsPage {
 
   pets: Pet[]=[];
   filteredPets: Pet[] = [];
+  notifications: Notification[]=[];
   filteredFromFilterPage = false;
   selectedcategory: number;
+  public isLoading: boolean = true;
 
   constructor(private apiService: AuthService,
     private navCtrl: NavController,
-    private ngZone: NgZone,) { }
+    private ngZone: NgZone,
+    private modalCtrl: ModalController,) { }
 
-  ngOnInit() {
-    
-  }
 
   ionViewWillEnter(){
     this.apiService.getEntity('pets').subscribe(async (pets: Pet[]) => {
       this.pets = pets;
       console.log(this.pets);
+      this.isLoading = false;
+    });
+
+    this.apiService.getEntity('received-notifications').subscribe(async (notifications: Notification[]) => {
+      this.notifications = notifications;
     });
   }
 
@@ -60,6 +67,22 @@ export class PetsPage implements OnInit {
       
     });
     console.log(this.selectedcategory);
+  }
+
+
+  async goToFiltersPage() {
+    const modal = await this.modalCtrl.create({
+      component: FiltersPage,
+    });
+    await modal.present();
+    await modal.onDidDismiss().then(modalData => {
+      if (modalData.data) {
+        if (modalData.data.filteredStores) {
+          this.filteredPets = modalData.data.filteredStores;
+          this.filteredFromFilterPage = true;
+        }
+      }
+    });
   }
 
 }

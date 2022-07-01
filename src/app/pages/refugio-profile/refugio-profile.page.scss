@@ -13,9 +13,19 @@ ion-header{
         }
     }
 }
-
 ion-content{
     --background: white;
+
+    .cabecera{
+        margin-top: 0;
+        background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        -webkit-box-shadow: 0px 7px 7px -6px rgba(0,0,0,0.47); 
+        box-shadow: 0px 7px 7px -6px rgba(0,0,0,0.47);
+        border-bottom-left-radius: 300px;
+        
+        padding-bottom: 15vw;
+        padding-top: 10vw;
+    }
 
     .petimage{
         margin-top: 4vh;
@@ -35,12 +45,12 @@ ion-content{
         height: 30vw;
         margin: auto;
         margin-top: 3vh;
-        border: 2px solid #5a9473;
+        border: 2px solid white;
     }
 
     .name{
         text-align: center;
-        color: #5a9473;
+        color: white;
         font-size: 20px;
         
     }

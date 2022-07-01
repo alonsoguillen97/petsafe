@@ -22,6 +22,8 @@ export class EditPetPage implements OnInit {
   public base64img: string;
   categories: PetCategory[]=[];
   breeds: PetBreed[]=[];
+  special_cares: boolean = false;
+  dangerous_breed: boolean = false;
   
 
   constructor(private formBuilder: FormBuilder,
@@ -32,14 +34,17 @@ export class EditPetPage implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      gender: ['', Validators.required],
-      birthdate: ['', Validators.required],
-      pet_category_id: ['', Validators.required],
+      name: [''],
+      gender: [''],
+      birthdate: [''],
+      pet_category_id: [''],
       pet_breed_id: [''],
-      size: ['', Validators.required],
-      weight: ['', Validators.required],
-      description: ['', Validators.required],
+      size: [''],
+      activity: [''],
+      weight: [''],
+      special_cares: [''],
+      dangerous: [''],
+      description: [''],
       image: ['']
     });
 
@@ -58,6 +63,27 @@ export class EditPetPage implements OnInit {
     console.log(this.pet);
   }
 
+  updateCares(){
+    if(this.special_cares == false){
+      this.special_cares = true;
+      console.log(this.special_cares);
+    }else if(this.special_cares == true){
+      this.special_cares = false;
+      console.log(this.special_cares);
+    }
+  }
+
+  updateBreed(){
+    if(this.dangerous_breed == false){
+      this.dangerous_breed = true;
+      console.log(this.dangerous_breed);
+    }else if(this.dangerous_breed == true){
+      this.dangerous_breed = false;
+      console.log(this.dangerous_breed);
+    }
+  }
+
+
 
   async submitForm(){
     
@@ -67,6 +93,8 @@ export class EditPetPage implements OnInit {
 
     this.form.patchValue({
       birthdate: newdate,
+      special_cares: this.special_cares,
+      dangerous: this.dangerous_breed
     })
 
     if(this.form.get('birthdate').value == 'Invalid date'){

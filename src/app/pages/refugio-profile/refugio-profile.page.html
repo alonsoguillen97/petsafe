@@ -5,16 +5,21 @@
   </ion-toolbar>
 </ion-header>
 
+<app-unauthorized *ngIf="user?.authorized == 1"></app-unauthorized>
+
 <ion-content>
  
-
+<div class="cabecera">
   <ion-avatar>
     <img src="{{user?.image}}">
   </ion-avatar>
+  <p class="name">{{user?.name}}</p>
+
+</div>
 
   
 
-  <p class="name">{{user?.name}}</p>
+  
   <br>
 
   <ion-item class="info" lines="none">
@@ -73,7 +78,7 @@
 
 
   <ion-item class="buttons ion-no-padding"  lines="none">
-    <ion-button class="refugio">
+    <ion-button routerLink="/edit-profile-refugio" class="refugio">
       Editar perfil
       
     </ion-button>
@@ -84,6 +89,6 @@
 
   </ion-item>
 
-  <ion-button class="submit" expand="block">Ver solicitudes</ion-button>
+  <ion-button class="submit" expand="block" routerLink="/own-requests">Ver solicitudes</ion-button>
 
 </ion-content>

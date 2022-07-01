@@ -5,6 +5,10 @@ import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { codeErrors } from "../../utils/utils";
+import { confirmPassword } from 'src/app/utils/utils';
+declare var google: any;
 
 @Component({
   selector: 'app-register-refugio',
@@ -18,6 +22,11 @@ export class RegisterRefugioPage implements OnInit {
   public form: FormGroup;
   public editImage: boolean = false;
   uploadphoto: boolean = false;
+  clickedInPrediction = false;
+  googleAutocomplete: any;
+  predictions: any[] = [];
+  placesService: any;
+  map: any;
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -25,8 +34,10 @@ export class RegisterRefugioPage implements OnInit {
     private alertCtrl: AlertController,
     private navCtrl: NavController,
     private utilitiesService: UtilitiesService,
+    private nativeGeocoder: NativeGeocoder,
     private camera: Camera,) {
       this.loading = this.loadingCtrl.create({message: 'Espera un momento...'});
+      this.googleAutocomplete = new google.maps.places.AutocompleteService();
      }
 
   ngOnInit() {
@@ -34,18 +45,61 @@ export class RegisterRefugioPage implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      password_confirmation: ['', Validators.required],
       phone: ['', Validators.required],
       location: ['', Validators.required],
       web: [''],
       donation: [''],
-      image: ['']
+      image: [''],
+      latitude: [''],
+      longitude: [''],
+      authorized: 1
+    });
+
+    // cuando se escriba una dirección, que se autocomplete al escribir
+    this.form.get('location').valueChanges.subscribe(address => {
+      this.clickedInPrediction = false;
+      let value = address;
+      if (value) {
+        this.googleAutocomplete.getPlacePredictions({
+          input: value,
+          types: [],
+          // componentRestrictions: { country: 'es' }
+        }, (predictions, status) => {
+          this.predictions = predictions;
+        });
+      }
+      else {
+        this.predictions = [];
+      }
     });
   }
 
 
   async submitForm(){
+
+    if (this.form.get('location').value) {
+      const address = this.form.get('location').value;
+      try {
+        let result = await this.nativeGeocoder.forwardGeocode(address);
+        console.log(result);
+        if (result.length > 0) {
+          this.form.patchValue({
+            latitude: result[0].latitude,
+            longitude: result[0].longitude
+          });
+        }
+      }
+      catch (err) { }
+    }
+
+    
     console.log(this.form.value);
     //this.authService.register(this.form.value)
+
+    if(this.form.get('password').value != this.form.get('password_confirmation').value){
+      this.utilitiesService.showToast('Las contraseñas no coinciden');
+    }else{
 
     this.authService.registerrefugio(this.form.value).subscribe((user: User) => {
       
@@ -55,12 +109,17 @@ export class RegisterRefugioPage implements OnInit {
 
       this.navCtrl.navigateRoot('/login');
 
+      
+    
+
     }, (error) => {
       
       this.utilitiesService.dismissLoading();
-      this.utilitiesService.showToast((error));
+      this.utilitiesService.showToast(codeErrors(error));
 
     });
+
+  }
   }
 
 
@@ -91,5 +150,32 @@ export class RegisterRefugioPage implements OnInit {
       this.editImage = false;
     })
   }
+
+
+  async choosePrediction(prediction) {
+    this.map = await new google.maps.Map(document.getElementById('modal_map_canvas'), {
+      zoom: 17
+    });
+    this.placesService = await new google.maps.places.PlacesService(this.map);
+
+    let request = {
+      placeId: prediction.place_id,
+      fields: ['geometry']
+    };
+
+    this.placesService.getDetails(request, (place, status) => {
+      if (status == 'OK') {
+        this.form.patchValue({
+          location: prediction.description,
+          latitud: place.geometry.location.lat(),
+          longitud: place.geometry.location.lng(),
+        });
+        this.clickedInPrediction = true;
+        this.predictions = [];
+      }
+    })
+  }
+
+  
 
 }

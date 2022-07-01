@@ -1,12 +1,12 @@
 
-
+<app-loading [text]="'Cargando...'" *ngIf="isLoading"></app-loading>
 <ion-content>
   <div class="header">
   <img class="logo" src="assets/imgs/logoletrasblanco.png">
   <ion-item class="selector" lines="none">
     <div>
     <ion-icon src="assets/icon/album.svg"></ion-icon>
-    <ion-icon src="assets/icon/grid.svg"></ion-icon>
+    <!--<ion-icon src="assets/icon/grid.svg"></ion-icon>-->
     <ion-icon src="assets/icon/map.svg" routerLink="/map"></ion-icon>
     </div>
   </ion-item>

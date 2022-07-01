@@ -21,7 +21,7 @@
     <p >{{this.refugio?.location}}</p>
   </ion-item>
 
-  <ion-item lines="none">
+  <ion-item href="{{this.refugio?.web}}" lines="none">
     <ion-icon slot="start" src="assets/icon/web.svg"></ion-icon>
     <p>{{this.refugio?.web}}</p>
   </ion-item>
@@ -30,17 +30,50 @@
   <p class="texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 
   <ion-item class="buttons ion-no-padding"  lines="none">
-    <ion-button class="refugio">
+    <ion-button (click)="goToInteriorMap()" class="refugio">
       Ver en el mapa
       
     </ion-button>
-    <ion-button class="fav">
+    <ion-button class="fav" (click)="contacto()">
       Contactar
       
     </ion-button>
 
   </ion-item>
-  <ion-button class="submit" expand="block">Ver animales en adopción </ion-button>
+  <ion-button *ngIf="!ishidden" class="submit" expand="block" (click)="hide()">
+    Ver animales en adopción 
+    <ion-icon src="assets/icon/arrow.svg"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="ishidden" class="submit" expand="block" (click)="hide()">
+    Ocultar animales en adopción 
+    <ion-icon src="assets/icon/arrow-down.svg"></ion-icon>
+  </ion-button>
+
+  <div *ngIf="pets?.length > 0 && ishidden">
+    <div class="contenedor" *ngFor="let pet of pets" >
+      <img src="{{pet?.image}}">
+      <ion-card>
+        
+      </ion-card>
+      <!--<ion-icon class="category-icon" src="assets/icon/perro.svg"></ion-icon>-->
+      <ion-icon class="enter-icon" src="assets/icon/enter.svg" (click)="goToInteriorPet(pet)"></ion-icon>
+      <ion-item lines="none" class="name">
+        <p>Nombre:</p>
+        {{pet?.name}}
+      </ion-item>
+      <ion-item lines="none" class="age">
+        <p>Edad:</p>
+        {{pet?.birthdate}}
+      </ion-item>
+      <ion-item lines="none" class="refugio">
+        
+        <ion-icon src="assets/icon/home.svg"></ion-icon>
+        <p>{{pet?.user?.name}}</p> 
+      </ion-item>
+    </div>
+  </div>
+
+  <br>
 
  
 </ion-content>

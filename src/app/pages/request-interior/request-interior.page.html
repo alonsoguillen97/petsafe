@@ -1,0 +1,114 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <img slot="end" class="logo" src="assets/imgs/logoletras1.png" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--
+<ion-button (click)="createPdf()">Create pdf</ion-button>
+<ion-button (click)="downloadPdf()">Download pdf</ion-button>-->
+<br><br>
+
+<ion-item class="pet" lines="none">
+<img src="{{this.request?.pet.image}}" alt="">
+<ion-col>
+  <p>{{this.request?.pet.name}}</p>
+  <p>{{this.request?.pet.category.name}}</p>
+  <p>{{this.request?.pet.gender}}</p>
+  <p>{{this.request?.pet.size}}</p>
+</ion-col>
+</ion-item>
+
+
+<p class="title">Información del solicitante</p>
+
+<div class="info">
+  <ion-item class="item" lines="none">
+    <ion-icon slot="start" src="assets/icon/user.svg"></ion-icon>
+    <p>{{this.request?.user.name}}</p>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon slot="start" src="assets/icon/phone.svg"></ion-icon>
+    <p >{{this.request?.user.phone}}</p>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon slot="start" src="assets/icon/location.svg"></ion-icon>
+    <p>{{this.request?.user.location}}</p>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon slot="start" src="assets/icon/mail.svg"></ion-icon>
+    <p>{{this.request?.user.email}}</p>
+  </ion-item>
+  </div>
+
+  <p class="title">Formulario de adopción</p>
+  
+  <p class="question">Tipo de vivienda (casa, piso, otros)</p>
+  <p class="answer">{{this.request.q1}}</p>
+  <p class="question">¿Su vivienda es propia o alquilada?, en caso de alquilada, ¿Tienes permiso del dueño para tener una mascota?</p>
+  <p class="answer">{{this.request.q2}}</p>
+  <p class="question">¿Dispone de jardin/terraza/patio?</p>
+  <p class="answer">{{this.request.q3}}</p>
+  <p class="question">¿Dispone de un espacio habilitado para la mascota?</p>
+  <p class="answer">{{this.request.q4}}</p>
+  <p class="question">¿Cuántas personas conviven en la vivienda?</p>
+  <p class="answer">{{this.request.q5}}</p>
+  <p class="question">¿Alguno es alérgico a la mascota?</p>
+  <p class="answer">{{this.request.q6}}</p>
+  <p class="question">¿Viven niños en la vivienda?</p>
+  <p class="answer">{{this.request.q7}}</p>
+  <p class="question">¿Estará mucho tiempo el animal solo en casa?</p>
+  <p class="answer">{{this.request.q8}}</p>
+  <p class="question">¿Tiene actualmente mascotas en casa?</p>
+  <p class="answer">{{this.request.q9}}</p>
+  <p class="question">¿Ha tenido mascotas anteriormente?</p>
+  <p class="answer">{{this.request.q10}}</p>
+  <p class="question">¿Conoce los cuidados que requiere una mascota como la que deseas adoptar?</p>
+  <p class="answer">{{this.request.q11}}</p>
+  <p class="question">¿Cuenta con la capacidad económica para hacerse cargo de la mascota?</p>
+  <p class="answer">{{this.request.q12}}</p>
+  <p class="question">¿Porqué ha decidido adoptar una mascota?</p>
+  <p class="answer">{{this.request.q13}}</p>
+  <p class="question">¿Que motivos harían que quisiese devolver a la mascota a la asociación?</p>
+  <p class="answer">{{this.request.q14}}</p>
+  <p class="question">Detalles:</p>
+  <p class="answer">{{this.request.details}}</p>
+
+  <br><br>
+
+
+  <p *ngIf="this.user?.role_id == 3" class="estado">Actualizar estado:</p>
+  <form *ngIf="this.user?.role_id == 3" [formGroup]="form" (ngSubmit)="submitForm()">
+  <ion-item lines="none">
+  <ion-button class="selector"  expand="block" >
+    <ion-select value="{{this.request?.status}}" formControlName="status" okText="Aceptar" cancelText="Cancelar">
+      <ion-select-option value="pendiente">Pendiente</ion-select-option>
+      <ion-select-option value="aceptada">Aceptada</ion-select-option>
+      <ion-select-option value="rechazada">Rechazada</ion-select-option>
+    </ion-select>
+    </ion-button> 
+
+  <ion-button type="submit" class="send">Enviar</ion-button>
+
+  </ion-item>
+</form>
+
+    <br><br>
+
+  <ion-button class="pdf" (click)="createPdf()">Crear pdf
+    <ion-icon src="assets/icon/pdf.svg"></ion-icon>
+  </ion-button>
+  <ion-button class="pdf" (click)="downloadPdf()">Descargar pdf
+    <ion-icon src="assets/icon/download.svg"></ion-icon>
+  </ion-button>
+
+  
+
+
+</ion-content>

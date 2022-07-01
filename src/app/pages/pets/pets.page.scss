@@ -42,6 +42,16 @@ ion-content{
           }
     }
 
+    .empty{
+        text-align: center;
+        color: black;
+        margin: auto;
+        margin-top: 7vh;
+        margin-left: 8vw;
+        margin-right: 8vw;
+        font-size: 20px;
+    }
+
     .categories{
         margin-top: 5vh;
       --background: transparent;
@@ -65,9 +75,13 @@ ion-content{
                 color: #d6d6d6;
                 border: 1px;
             }
+            .lost{
+                
+                color: white;
+
+            }
            
             ion-button{
-                --color: white;
                 width: 22vw;
                 --box-shadow: none;
                 --border-radius: 10px;

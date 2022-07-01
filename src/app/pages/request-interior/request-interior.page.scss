@@ -1,0 +1,138 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+
+    --background: white;
+
+    .pet{
+
+        border: 1px solid #5a9473;
+        width: 100vw;
+
+        img{
+            width: 50vw;
+            border-radius: 15px;
+            margin-right: 5vw;
+        }
+        p{
+            color: black;
+        }
+    }
+
+    .title{
+        margin-left: 3vw;
+        margin-right: 3vw;
+    font-size: 8vw;
+    font-weight: bold;
+    background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+    color: transparent;
+    background-clip: text;
+    }
+
+    .question{
+        margin-left: 4vw;
+        margin-right: 4vw;
+        color: black;
+        font-weight: bold;
+    }
+
+    .answer{
+        margin-left: 4vw;
+        margin-right: 4vw;
+        color: black;
+        margin-bottom: 5vw;
+    }
+
+    .info{
+        -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); 
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+    width: 95vw;
+    background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+    border-top-right-radius: 600px;
+    border-bottom-right-radius: 600px;
+    margin-bottom: 1vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+
+    ion-item{
+        --background: transparent !important;
+        margin-right: 5vw;
+        p{
+            margin-left: 0;
+            margin-right: 10vw;
+            font-size: 16px;
+            color: white;
+        }
+        ion-icon{
+            color: white;
+            margin-left: 3vw;
+            font-size: 25px;
+        }
+    }
+
+    }
+
+    .pdf{
+        width: 80vw;
+        margin: auto;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        --border-radius: 14px;
+        --box-shadow: none;
+        color: white;
+        height: 50px;
+        margin-bottom: 6vw;
+
+        ion-icon{
+            position: absolute;
+            right: 1vw;
+            color: white;
+        }
+    }
+
+    .selector{
+        color: black;
+        margin-left: 5vw;
+        width: 70vw;
+        height: 6vh;
+        --background: #d6d6d6;
+        --border-radius: 10px;
+        text-transform: none;
+        --box-shadow: none;
+        ion-select{
+            width: 100%;
+            height: 90%;
+            text-align: left;
+          }
+    }
+
+    .send{
+        width: 30vw;
+        height: 6vh;
+        --background: #5a9473;
+        --border-radius: 10px;
+        text-transform: none;
+        --box-shadow: none;
+        color: white;
+    }
+
+    .estado{
+        margin-left: 3vw;
+        font-size: 5vw;
+        color: black;
+    }
+}

@@ -26,7 +26,7 @@ ion-content{
     }
 
     .header{
-        height: 30vh;
+        height: 60vw;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;
         //background: white;
@@ -46,7 +46,7 @@ ion-content{
     
     form{
         position: absolute;
-        top: 45vh;
+        top: 90vw;
     }
     
     ion-item{
@@ -88,10 +88,10 @@ ion-content{
         margin-left: 10vw;
         margin-right: 10vw;
         text-transform: none;
-        height: 5vh;
+        height: 10vw;
         font-size: 12px;
         font-weight: normal;
-        --border-radius:20px;
+        --border-radius:15px;
         --box-shadow:none;
     }
 
@@ -103,10 +103,10 @@ ion-content{
         margin-left: 10vw;
         margin-right: 10vw;
         text-transform: none;
-        height: 5vh;
+        height: 10vw;
         font-size: 12px;
         font-weight: normal;
-        --border-radius:20px;
+        --border-radius:15px;
         --box-shadow:none;
     }
 

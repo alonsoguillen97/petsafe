@@ -12,6 +12,7 @@ import { UtilitiesService } from 'src/app/services/utilities.service';
 export class ManagePetsPage implements OnInit {
 
   pets: Pet[]=[];
+  petsBackup: Pet[]=[];
 
   constructor(private apiService: AuthService,
     private navCtrl: NavController,
@@ -25,6 +26,7 @@ export class ManagePetsPage implements OnInit {
   ionViewWillEnter(){
     this.apiService.getEntity('own-pets').subscribe(async (pets: Pet[]) => {
       this.pets = pets;
+      this.petsBackup = pets;
       console.log(this.pets);
     });
   }
@@ -81,5 +83,20 @@ export class ManagePetsPage implements OnInit {
 
     await alert.present();
 
+  }
+
+  async filterList(evt) {
+    this.pets = this.petsBackup;
+    const searchTerm = evt.srcElement.value;
+  
+    if (!searchTerm) {
+      return;
+    }
+  
+    this.pets = this.pets.filter(currentPet => {
+      if (currentPet.name && searchTerm) {
+        return (currentPet.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+      }
+    });
   }
 }

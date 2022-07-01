@@ -17,6 +17,23 @@ ion-header{
 ion-content{
     --background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
 
+    .check{
+        --background: white;
+        margin:0 auto;
+        width: 80vw;
+        margin-top: 2vh;
+
+        ion-checkbox{
+            width: 20px;
+            height: 20px;
+            --border-radius: 100px;
+        }
+        p{
+            margin-left: 5vw;
+            color: black;
+        }
+    }
+
 
     .title{
         color: white;

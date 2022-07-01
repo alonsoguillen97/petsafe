@@ -83,6 +83,58 @@ const routes: Routes = [
     path: 'edit-pet',
     loadChildren: () => import('./pages/edit-pet/edit-pet.module').then( m => m.EditPetPageModule)
   },
+  {
+    path: 'tab2',
+    loadChildren: () => import('./pages/tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+  {
+    path: 'liked-pets',
+    loadChildren: () => import('./pages/liked-pets/liked-pets.module').then( m => m.LikedPetsPageModule)
+  },
+  {
+    path: 'adoption-form',
+    loadChildren: () => import('./pages/adoption-form/adoption-form.module').then( m => m.AdoptionFormPageModule)
+  },
+  {
+    path: 'own-requests',
+    loadChildren: () => import('./pages/own-requests/own-requests.module').then( m => m.OwnRequestsPageModule)
+  },
+  {
+    path: 'edit-profile-refugio',
+    loadChildren: () => import('./pages/edit-profile-refugio/edit-profile-refugio.module').then( m => m.EditProfileRefugioPageModule)
+  },
+  {
+    path: 'edit-profile-user',
+    loadChildren: () => import('./pages/edit-profile-user/edit-profile-user.module').then( m => m.EditProfileUserPageModule)
+  },
+  {
+    path: 'request-interior',
+    loadChildren: () => import('./pages/request-interior/request-interior.module').then( m => m.RequestInteriorPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'filters',
+    loadChildren: () => import('./pages/filters/filters.module').then( m => m.FiltersPageModule)
+  },
+  {
+    path: 'own-requests-user',
+    loadChildren: () => import('./pages/own-requests-user/own-requests-user.module').then( m => m.OwnRequestsUserPageModule)
+  },
+  {
+    path: 'pets-lost',
+    loadChildren: () => import('./pages/pets-lost/pets-lost.module').then( m => m.PetsLostPageModule)
+  },
+  {
+    path: 'create-pet-lost',
+    loadChildren: () => import('./pages/create-pet-lost/create-pet-lost.module').then( m => m.CreatePetLostPageModule)
+  },
+  {
+    path: 'pets-no-login',
+    loadChildren: () => import('./pages/pets-no-login/pets-no-login.module').then( m => m.PetsNoLoginPageModule)
+  },
 ];
 
 @NgModule({

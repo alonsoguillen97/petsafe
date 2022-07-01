@@ -8,8 +8,11 @@ export const environment = {
   //Navegador
   //apiUrl: 'http://localhost/petsafe-laravel/public/api/auth/'
 
+  //apiUrl: 'https://petsafe.website/api/auth/',
+
   //Dispositivo movil
-  apiUrl: 'http://192.168.1.135:8000/api/auth/'
+  apiUrl: 'http://10.182.187.35:8000/api/auth/',
+  apiUrl1: 'http://10.182.187.35:8000/api/'
 };
 
 /*

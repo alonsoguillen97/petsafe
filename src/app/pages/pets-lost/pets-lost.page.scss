@@ -1,0 +1,114 @@
+ion-header{
+    --background: white;
+    ion-toolbar{
+        --background: white;
+
+        ion-back-button{
+            color: black;
+        }
+
+        .logo{
+            width: 40vw;
+            margin-right: 5vw;
+        }
+    }
+}
+
+ion-content{
+    .title1{
+        
+        margin-left: 3vw;
+        margin-right: 3vw;
+        font-size: 10vw;
+        font-weight: bold;
+        margin-bottom: 0;
+        background: -webkit-linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        color: transparent;
+        background-clip: text;
+    }
+
+    .info{
+        margin-left: 5vw;
+        width: 14vw;
+        height: 14vw;
+        --box-shadow: none;
+        padding: 0;
+        --background: #5a947375; 
+        --border-radius: 20px;
+        
+        ion-icon{
+            font-size: 50vw;
+            color: white;
+        }
+     }
+
+     .create{
+        height: 14vw;
+        --border-radius: 10px;
+        --background: #5a9473; 
+        color: white;
+        --box-shadow: none;
+        margin-left: 10vw;
+        
+     }
+
+     .contenedor{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        padding-left: 0;
+        margin-left: 0;
+        height: 70vh;
+        background: linear-gradient(263deg, rgba(155,209,183,1) 0%, rgb(37, 131, 100) 100%);
+        border-radius: 15px;
+
+        
+        img{
+            position: absolute;
+            top: 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            width: 100vw;
+            height: 30vh;
+        }
+        
+        ion-card{
+            margin: 0;
+            position: absolute;
+            width: 90vw;
+            height: 25vh;
+            bottom: 13vh;
+            background: white;
+            border-radius: 15px;
+
+            .description{
+                margin-left: 5vw;
+                margin-right: 5vw;
+            }
+        }
+
+        .location{
+            color: white;
+            position: absolute;
+            bottom: 0vh;
+            left: 5vw;
+        }
+
+        .phone{
+            color: white;
+            position: absolute;
+            bottom: 3vh;
+            left: 5vw;
+        }
+        .email{
+            color: white;
+            position: absolute;
+            bottom: 6vh;
+            left: 5vw;
+        }
+    }
+}
